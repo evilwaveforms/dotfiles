@@ -1,0 +1,15 @@
+# mpc pause / play
+"mpc toggle &"
+    m:0x4 + c:111
+# mpc next
+"mpc next &"
+    m:0x4 + c:114    
+# mpc previous
+"mpc prev &"
+    m:0x4 + c:113 
+# set keyboard layout to finnish
+"setxkbmap fi"
+    m:0x41 + c:33
+# set keyboard layout to us
+"setxkbmap us"
+    m:0x41 + c:32
