@@ -6,6 +6,7 @@ filetype off				" helps force plug-ins to load correctly when it is turned back 
 " Specify a directory for plugins
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
+Plug 'mattn/emmet-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'koirand/tokyo-metro.vim'
 call plug#end()
