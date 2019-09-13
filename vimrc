@@ -27,6 +27,10 @@ if !has('gui_running')
 " filetype plugins
 filetype plugin indent on		
 
+" emmet
+let g:user_emmet_leader_key=','
+let g:user_emmet_install_global=0
+autocmd Filetype html,css EmmetInstal
 " Turn off modelines
 set modelines=0				 
 
