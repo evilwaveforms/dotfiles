@@ -6,6 +6,9 @@ filetype off				" helps force plug-ins to load correctly when it is turned back 
 " Specify a directory for plugins
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
+Plug 'scrooloose/nerdtree'
+Plug 'dense-analysis/ale'
+Plug 'tpope/vim-commentary'
 Plug 'mattn/emmet-vim'
 Plug 'itchyny/lightline.vim'
 Plug 'koirand/tokyo-metro.vim'
@@ -15,14 +18,19 @@ call plug#end()
 syntax on
 
 " colors
-colorscheme tokyo-metro
-let g:lightline = {
-      \ 'colorscheme': 'tokyometro',
-      \ }
+" colorscheme tokyo-metro
+colorscheme silenthill
+"let g:lightline = {
+"      \ 'colorscheme': 'tokyometro',
+"      \ }
 "
-if !has('gui_running')
-          set t_Co=256
-  endif
+if &term =~ '256color'
+    " Disable Background Color Erase (BCE) so that color schemes
+    "     " work properly when Vim is used inside tmux and GNU screen.
+    set t_ut=
+endif
+
+set termguicolors
 
 " filetype plugins
 filetype plugin indent on		
@@ -30,7 +38,7 @@ filetype plugin indent on
 " emmet
 let g:user_emmet_leader_key=','
 let g:user_emmet_install_global=0
-autocmd Filetype html,css EmmetInstal
+autocmd Filetype html,css,php EmmetInstal
 " Turn off modelines
 set modelines=0				 
 
@@ -42,6 +50,10 @@ nnoremap <F2> :set invpaste paste?<CR>
 imap <F2> <C-O>:set invpaste paste?<CR>
 set pastetoggle=<F2>
 
+" syntax group under cursor
+nnoremap <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+            \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+            \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 " tabs, indentation etc
 set tabstop=4
 set softtabstop=4
@@ -68,12 +80,15 @@ set showcmd
 set matchpairs+=<:>			 
 
 " show line numbers
-set number				 
+set number 
 
 " Set status line display
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ [BUFFER=%n]\ %{strftime('%c')} 
 
 set encoding=utf-8		
+
+" Nerdtree
+map <F3> :NERDTreeToggle<CR>
 
 " highlight matching search patterns
 set hlsearch				 
@@ -88,13 +103,13 @@ set smartcase
 " " Store info from no more than 100 files at a time, 9999 lines of text,
 " 100kb of data. Useful for copying large amounts of data between files.
 set viminfo='100,<9999,s100
-"
-" " Map the <Space> key to toggle a selected fold opened/closed.
-" nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
-" vnoremap <Space> zf
+
+
+" folding
+set foldmethod=syntax
+set foldlevelstart=99
 "
 " " Automatically save and load folds
 " autocmd BufWinLeave *.* mkview
 " autocmd BufWinEnter *.* silent loadview"
-
 
