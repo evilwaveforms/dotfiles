@@ -13,7 +13,7 @@ shopt -s checkwinsize
 # force_color_prompt=yes
 
 # export PS1='\e[1;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]\$ '
-export PS1='\e[1;32m\u@\h:\e[0m\e[1;34m\w\e[0m \e[0;37m\$\e[0m '
+export PS1='\e[2;31m\u@\h:\e[0m\e[0;36m\w\e[0m \e[0;37m#\e[0m '
 # Alias definitions. might do this in the future
 
 #if [ -f ~/.bash_aliases ]; then
