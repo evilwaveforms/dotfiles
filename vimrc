@@ -7,9 +7,12 @@ filetype off				" helps force plug-ins to load correctly when it is turned back 
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
+Plug 'tpope/vim-fugitive'
 Plug 'dense-analysis/ale'
+Plug 'Valloric/YouCompleteMe'
 Plug 'tpope/vim-commentary'
 Plug 'mattn/emmet-vim'
+Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
 Plug 'koirand/tokyo-metro.vim'
 call plug#end()
@@ -20,10 +23,18 @@ syntax on
 " colors
 " colorscheme tokyo-metro
 colorscheme silenthill
-"let g:lightline = {
-"      \ 'colorscheme': 'tokyometro',
-"      \ }
-"
+
+let g:lightline = {
+      \ 'colorscheme': 'jellybeans',
+      \ 'active': {
+      \   'left': [ [ 'mode', 'paste' ],
+      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+      \ },
+      \ 'component_function': {
+      \   'gitbranch': 'FugitiveHead'
+      \ },
+      \ }
+
 if &term =~ '256color'
     " Disable Background Color Erase (BCE) so that color schemes
     "     " work properly when Vim is used inside tmux and GNU screen.
@@ -38,7 +49,13 @@ filetype plugin indent on
 " emmet
 let g:user_emmet_leader_key=','
 let g:user_emmet_install_global=0
-autocmd Filetype html,css,php EmmetInstal
+autocmd Filetype html,css,php,javascript EmmetInstall
+let g:user_emmet_settings = {
+            \ 'javascript' : {
+            \   'extends' : 'jsx',
+            \ },
+            \}
+
 " Turn off modelines
 set modelines=0				 
 
@@ -79,8 +96,8 @@ set showcmd
 " highlight matching pairs of brackets.
 set matchpairs+=<:>			 
 
-" show line numbers
-set number 
+" show relative(hybrid) line numbers
+set number relativenumber
 
 " Set status line display
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ [BUFFER=%n]\ %{strftime('%c')} 
