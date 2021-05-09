@@ -5,7 +5,7 @@
 
 dir=~/dotfiles              # dotfiles directory
 olddir=~/dotfiles_old       # backup directory for old dotfiles
-files="bashrc vimrc vim Xresources xinitrc xbindkeysrc compton.conf i3 i3blocks.conf zathura" # files/folders to symlink
+files="bashrc vimrc Xresources xinitrc xbindkeysrc compton.conf i3 i3blocks.conf zathura tmux.conf" # files/folders to symlink
 
 # create backup directory for old dotfiles
 echo "Creating $olddir for backup of any existing dotfiles in ~"

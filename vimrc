@@ -10,18 +10,20 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'dense-analysis/ale'
 Plug 'Valloric/YouCompleteMe'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-commentary'
 Plug 'mattn/emmet-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
 Plug 'koirand/tokyo-metro.vim'
+Plug 'iojani/silenthill.vim'
 call plug#end()
 
 " turn on syntax highlighting.
 syntax on
 
 " colors
-" colorscheme tokyo-metro
 colorscheme silenthill
 
 let g:lightline = {
@@ -49,12 +51,26 @@ filetype plugin indent on
 " emmet
 let g:user_emmet_leader_key=','
 let g:user_emmet_install_global=0
-autocmd Filetype html,css,php,javascript EmmetInstall
+autocmd Filetype html,htmldjango,css,scss,php,javascript EmmetInstall
 let g:user_emmet_settings = {
             \ 'javascript' : {
             \   'extends' : 'jsx',
             \ },
             \}
+
+" YCM
+nnoremap <silent> <Leader>gd :YcmCompleter GoTo<CR>
+nnoremap <silent> <Leader>gD :YcmCompleter FixIt<CR>
+
+" Ale
+let g:ale_linter = {'python': ['flake8']}
+
+" fzf
+nnoremap <C-p> :Files<CR>
+nnoremap <C-g> :GFiles<CR>
+nnoremap <C-f> :Rg!<CR>
+nnoremap <C-b> :Buffer<CR>
+
 
 " Turn off modelines
 set modelines=0				 

@@ -20,3 +20,11 @@ export PS1='\[\e[2;31m\]\u@\h:\[\e[0m\]\[\e[0;36m\]\w\[\e[0m\] \[\e[0;37m\]#\[\e
 #    . ~/.bash_aliases
 #fi
 
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+    . /etc/bash_completion
+fi
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash
