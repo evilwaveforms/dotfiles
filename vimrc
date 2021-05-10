@@ -69,7 +69,8 @@ let g:ale_linter = {'python': ['flake8']}
 nnoremap <C-p> :Files<CR>
 nnoremap <C-g> :GFiles<CR>
 nnoremap <C-f> :Rg!<CR>
-nnoremap <C-b> :Buffer<CR>
+nnoremap <leader>b :Buffer<CR>
+nnoremap <leader>g :BCommits<CR>
 
 
 " Turn off modelines
@@ -118,7 +119,7 @@ set number relativenumber
 " Set status line display
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ [BUFFER=%n]\ %{strftime('%c')} 
 
-set encoding=utf-8		
+set encoding=UTF-8		
 
 " Nerdtree
 map <F3> :NERDTreeToggle<CR>
