@@ -16,15 +16,15 @@ Plug 'tpope/vim-commentary'
 Plug 'mattn/emmet-vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
-Plug 'koirand/tokyo-metro.vim'
 Plug 'iojani/silenthill.vim'
+Plug 'iojani/half-life.vim'
 call plug#end()
 
 " turn on syntax highlighting.
 syntax on
 
 " colors
-colorscheme silenthill
+colorscheme half-life
 
 let g:lightline = {
       \ 'colorscheme': 'jellybeans',
@@ -63,7 +63,7 @@ nnoremap <silent> <Leader>gd :YcmCompleter GoTo<CR>
 nnoremap <silent> <Leader>gD :YcmCompleter FixIt<CR>
 
 " Ale
-let g:ale_linter = {'python': ['flake8']}
+" let g:ale_linter = {'python': ['flake8']}
 
 " fzf
 nnoremap <C-p> :Files<CR>
@@ -71,6 +71,8 @@ nnoremap <C-g> :GFiles<CR>
 nnoremap <C-f> :Rg!<CR>
 nnoremap <leader>b :Buffer<CR>
 nnoremap <leader>g :BCommits<CR>
+nnoremap <leader>gg :GFiles?<CR>
+nnoremap <leader>l :Lines<CR>
 
 
 " Turn off modelines
@@ -140,8 +142,8 @@ set viminfo='100,<9999,s100
 
 
 " folding
-set foldmethod=syntax
-set foldlevelstart=99
+" set foldmethod=syntax
+" set foldlevelstart=99
 "
 " " Automatically save and load folds
 " autocmd BufWinLeave *.* mkview
