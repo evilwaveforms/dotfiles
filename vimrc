@@ -1,10 +1,10 @@
-set nocompatible			" set compatibility to Vim only.
+" set compatibility to Vim only.
+set nocompatible
 
-filetype off				" helps force plug-ins to load correctly when it is turned back on below.
+" helps force plug-ins to load correctly when it is turned back on below.
+filetype off
 
-" set background=dark
 " Specify a directory for plugins
-" - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
@@ -18,13 +18,16 @@ Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
 Plug 'iojani/silenthill.vim'
 Plug 'iojani/half-life.vim'
+Plug 'ewilazarus/preto'
+Plug 'cocopon/iceberg.vim'
 call plug#end()
+
+colorscheme half-life
+set bg=dark
+set termguicolors
 
 " turn on syntax highlighting.
 syntax on
-
-" colors
-colorscheme half-life
 
 let g:lightline = {
       \ 'colorscheme': 'jellybeans',
@@ -43,10 +46,9 @@ if &term =~ '256color'
     set t_ut=
 endif
 
-set termguicolors
 
 " filetype plugins
-filetype plugin indent on		
+filetype plugin indent on
 
 " emmet
 let g:user_emmet_leader_key=','
@@ -75,11 +77,22 @@ nnoremap <leader>gg :GFiles?<CR>
 nnoremap <leader>l :Lines<CR>
 
 
+nmap <silent><Leader>gb :call setbufvar(winbufnr(popup_atcursor(split(system("git log -n 1 -L " . line(".") . ",+1:" . expand("%:p")), "\n"), { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })), "&filetype", "git")<CR>
+
+
+highlight ColorColumn ctermbg=magenta
+call matchadd('ColorColumn', '\%81v', 100)
+
+
+exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
+set list
+
 " Turn off modelines
-set modelines=0				 
+set modelines=0
 
 " Automatically wrap text that extends beyond the screen length.
 set wrap
+
 " Vim's auto indentation feature does not work properly with text copied
 " from outside of Vim. Press the <F2> key to toggle paste mode on/off.
 nnoremap <F2> :set invpaste paste?<CR>
@@ -90,6 +103,7 @@ set pastetoggle=<F2>
 nnoremap <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
             \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
             \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
 " tabs, indentation etc
 set tabstop=4
 set softtabstop=4
@@ -98,43 +112,43 @@ set expandtab
 set autoindent
 
 " highlight current line
-set cursorline 				
+set cursorline
 " Display 5 lines above/below the cursor when scrolling with a mouse.
-set scrolloff=5 			
+set scrolloff=5
 " Fixes common backspace problems
-set backspace=indent,eol,start 		
+set backspace=indent,eol,start
 " Speed up scrolling in Vim
-set ttyfast 				
+set ttyfast
 " display status line always
-set laststatus=2 			
+set laststatus=2
 
 " Display options
 set showmode
 set showcmd
 
 " highlight matching pairs of brackets.
-set matchpairs+=<:>			 
+set matchpairs+=<:>
 
 " show relative(hybrid) line numbers
 set number relativenumber
 
 " Set status line display
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ [BUFFER=%n]\ %{strftime('%c')} 
+set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ [BUFFER=%n]\ %{strftime('%c')}
 
-set encoding=UTF-8		
+set encoding=UTF-8
 
 " Nerdtree
 map <F3> :NERDTreeToggle<CR>
 
 " highlight matching search patterns
-set hlsearch				 
+set hlsearch
 nnoremap <leader><space> :nohlsearch<CR>
 " enable incremental search
-set incsearch				 
+set incsearch
 " include matching uppercase words with lowercase search term
-set ignorecase				 
+set ignorecase
 " include only uppercase words with uppercase search term
-set smartcase				 
+set smartcase
 
 " " Store info from no more than 100 files at a time, 9999 lines of text,
 " 100kb of data. Useful for copying large amounts of data between files.
