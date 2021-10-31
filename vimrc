@@ -19,27 +19,30 @@ Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
 Plug 'iojani/silenthill.vim'
 Plug 'iojani/half-life.vim'
+Plug 'iojani/lasombra.vim'
 Plug 'ewilazarus/preto'
 Plug 'cocopon/iceberg.vim'
-call plug#end()
+Plug 'suy/vim-context-commentstring'
 
-colorscheme half-life
-set bg=dark
-set termguicolors
+call plug#end()
 
 " turn on syntax highlighting.
 syntax on
 
 let g:lightline = {
-      \ 'colorscheme': 'jellybeans',
-      \ 'active': {
-      \   'left': [ [ 'mode', 'paste' ],
-      \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-      \ },
-      \ 'component_function': {
-      \   'gitbranch': 'FugitiveHead'
-      \ },
-      \ }
+            \ 'colorscheme': 'lasombra',
+            \ 'active': {
+            \   'left': [ [ 'mode', 'paste' ],
+            \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
+            \ },
+            \ 'component_function': {
+            \   'gitbranch': 'FugitiveHead'
+            \ },
+            \ }
+
+set background=dark
+set termguicolors
+colorscheme lasombra
 
 if &term =~ '256color'
     " Disable Background Color Erase (BCE) so that color schemes
@@ -92,6 +95,8 @@ call matchadd('ColorColumn', '\%81v', 100)
 exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 set list
 
+set hidden
+
 " Turn off modelines
 set modelines=0
 
@@ -115,6 +120,14 @@ set softtabstop=4
 set shiftwidth=4
 set expandtab
 set autoindent
+
+" keep visual selection after indenting
+vnoremap < <gv
+vnoremap > >gv
+
+autocmd Filetype html,javascript,vue setlocal ts=2 sw=2 expandtab
+
+runtime macros/matchit.vim
 
 " highlight current line
 set cursorline
@@ -168,3 +181,5 @@ set viminfo='100,<9999,s100
 " autocmd BufWinLeave *.* mkview
 " autocmd BufWinEnter *.* silent loadview"
 
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
