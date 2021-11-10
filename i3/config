@@ -75,7 +75,7 @@ bindsym $mod+e layout toggle split
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+# bindsym $mod+space focus mode_toggle
 
 # focus the parent container
 bindsym $mod+a focus parent
@@ -145,6 +145,12 @@ mode "resize" {
 
 bindsym $mod+r mode "resize"
 
+
+# startup
+exec --nostartup-id redshift
+# exec --no-startup-id ~/.screenlayout/dualmonitor.sh
+exec --no-startup-id setxkbmap -option caps:super
+
 # class                 border  backgr. text    indicator child_border
 client.focused          #4c7899 #285577 #ffffff #2e9ef4   #285577
 client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
@@ -161,7 +167,7 @@ bar {
     status_command i3blocks
     colors {
     background #000000
-    statusline #ffffff 
+    statusline #ffffff
     separator  #666666
 
     focused_workspace  #4C7899 #285577 #FFFFFF
