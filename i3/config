@@ -153,7 +153,7 @@ exec --no-startup-id setxkbmap -option caps:super
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #0c0c0c #858585 #000000 #2e9ef4   #858585
-client.focused_inactive #333333 #363636 #ffffff #484e50   #4a4a4a
+client.focused_inactive #333333 #363636 #888888 #484e50   #4a4a4a
 client.unfocused        #333333 #222222 #888888 #292d2e   #404040
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
