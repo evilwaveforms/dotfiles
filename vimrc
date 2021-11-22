@@ -23,6 +23,7 @@ Plug 'iojani/lasombra.vim'
 Plug 'ewilazarus/preto'
 Plug 'cocopon/iceberg.vim'
 Plug 'suy/vim-context-commentstring'
+Plug 'dbeniamine/cheat.sh-vim'
 
 call plug#end()
 
@@ -80,6 +81,10 @@ nnoremap <leader>g :BCommits<CR>
 nnoremap <leader>gg :GFiles?<CR>
 nnoremap <leader>l :Lines<CR>
 
+" fugitive
+nmap <leader>gs :G<CR>
+nmap <leader>gf :diffget //2<CR>
+nmap <leader>gj :diffget //3<CR>
 
 nmap <expr> <leader>gg &filetype ==# 'fugitiveblame' ? "gq" : ":Git blame\r"
 nnoremap <leader>GB :GBrowse<CR>
