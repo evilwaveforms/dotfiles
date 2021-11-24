@@ -1,10 +1,15 @@
 " set compatibility to Vim only.
 set nocompatible
 
+set wildmode=longest,list,full
+set wildmenu
+
+set wildignore+=*.pyc
+set wildignore+=**/node_modules/*
+
 " helps force plug-ins to load correctly when it is turned back on below.
 filetype off
 
-" Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
@@ -25,11 +30,11 @@ Plug 'cocopon/iceberg.vim'
 Plug 'suy/vim-context-commentstring'
 Plug 'dbeniamine/cheat.sh-vim'
 Plug 'stsewd/fzf-checkout.vim'
-
 call plug#end()
 
-" turn on syntax highlighting.
 syntax on
+
+let mapleader = " "
 
 let g:lightline = {
             \ 'colorscheme': 'lasombra',
@@ -52,26 +57,28 @@ if &term =~ '256color'
     set t_ut=
 endif
 
-
 " filetype plugins
 filetype plugin indent on
 
 " emmet
 let g:user_emmet_leader_key=','
 let g:user_emmet_install_global=0
-autocmd Filetype html,htmldjango,css,scss,php,javascript EmmetInstall
+autocmd Filetype html,htmldjango,css,scss,php,javascript,vue EmmetInstall
 let g:user_emmet_settings = {
             \ 'javascript' : {
             \   'extends' : 'jsx',
             \ },
             \}
 
-" YCM
-nnoremap <silent> <Leader>gd :YcmCompleter GoTo<CR>
-nnoremap <silent> <Leader>gD :YcmCompleter FixIt<CR>
-
 " Ale
 " let g:ale_linter = {'python': ['flake8']}
+"
+
+" YCM
+nnoremap <silent> <Leader>gd :YcmCompleter GoTo<CR>
+nnoremap <silent> <Leader>gr :YcmCompleter GoToReferences<CR>
+
+map <F3> :NERDTreeToggle<CR>
 
 " fzf
 nnoremap <C-p> :Files<CR>
@@ -92,13 +99,19 @@ nnoremap <leader>gc :GBranches<CR>
 nmap <expr> <leader>gg &filetype ==# 'fugitiveblame' ? "gq" : ":Git blame\r"
 nnoremap <leader>GB :GBrowse<CR>
 
+" keep visual selection after indenting
+vnoremap < <gv
+vnoremap > >gv
+
+nnoremap <leader><space> :nohlsearch<CR>
+
+
 " commit msg tooltip
 nmap <silent><Leader>gb :call setbufvar(winbufnr(popup_atcursor(split(system("git log -n 1 -L " . line(".") . ",+1:" . expand("%:p")), "\n"), { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })), "&filetype", "git")<CR>
 
 
 highlight ColorColumn ctermbg=magenta
 call matchadd('ColorColumn', '\%81v', 100)
-
 
 exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 set list
@@ -117,21 +130,12 @@ nnoremap <F2> :set invpaste paste?<CR>
 imap <F2> <C-O>:set invpaste paste?<CR>
 set pastetoggle=<F2>
 
-" syntax group under cursor
-nnoremap <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-            \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-            \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
-
 " tabs, indentation etc
 set tabstop=4
 set softtabstop=4
 set shiftwidth=4
 set expandtab
 set autoindent
-
-" keep visual selection after indenting
-vnoremap < <gv
-vnoremap > >gv
 
 autocmd Filetype html,javascript,vue setlocal ts=2 sw=2 expandtab
 
@@ -152,23 +156,16 @@ set laststatus=2
 set showmode
 set showcmd
 
-" highlight matching pairs of brackets.
 set matchpairs+=<:>
 
-" show relative(hybrid) line numbers
 set number relativenumber
 
-" Set status line display
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ [BUFFER=%n]\ %{strftime('%c')}
 
 set encoding=UTF-8
 
-" Nerdtree
-map <F3> :NERDTreeToggle<CR>
-
 " highlight matching search patterns
 set hlsearch
-nnoremap <leader><space> :nohlsearch<CR>
 " enable incremental search
 set incsearch
 " include matching uppercase words with lowercase search term
@@ -180,6 +177,10 @@ set smartcase
 " 100kb of data. Useful for copying large amounts of data between files.
 set viminfo='100,<9999,s100
 
+" syntax group under cursor
+nnoremap <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+            \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+            \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " folding
 " set foldmethod=syntax
