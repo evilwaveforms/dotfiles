@@ -15,7 +15,7 @@ Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-rhubarb'
-Plug 'dense-analysis/ale'
+" Plug 'dense-analysis/ale'
 Plug 'Valloric/YouCompleteMe'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
@@ -24,7 +24,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'itchyny/lightline.vim'
 Plug 'iojani/silenthill.vim'
 Plug 'iojani/half-life.vim'
-Plug 'iojani/lasombra.vim'
+Plug 'iojani/system-shock.vim'
 Plug 'ewilazarus/preto'
 Plug 'cocopon/iceberg.vim'
 Plug 'suy/vim-context-commentstring'
@@ -37,7 +37,7 @@ syntax on
 let mapleader = " "
 
 let g:lightline = {
-            \ 'colorscheme': 'lasombra',
+            \ 'colorscheme': 'systemshock',
             \ 'active': {
             \   'left': [ [ 'mode', 'paste' ],
             \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
@@ -49,7 +49,7 @@ let g:lightline = {
 
 set background=dark
 set termguicolors
-colorscheme lasombra
+colorscheme system-shock
 
 if &term =~ '256color'
     " Disable Background Color Erase (BCE) so that color schemes
