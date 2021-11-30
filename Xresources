@@ -10,14 +10,16 @@ Xft.rgba:               rgb
 Xft.hinting:            true
 Xft.hintstyle: hintslight
 
-URxvt*font: xft:inconsolata-13
+/* URxvt*font: xft:inconsolata-13 */
+URxvt*font: xft:JetBrainsMono-13
+/* URxvt*font: xft:ShareTechMono-14 */
 URxvt.letterSpace: -1
 URxvt*xftAntialias: true
 
 ! COLORS
 *.foreground:   #c0c0c0
-*.background:   #121212
-*.cursorColor:  #c0c0c0
+*.background:   #000000
+*.cursorColor:  #6ED4BA
 
 ! black
 *.color0:       #080808
