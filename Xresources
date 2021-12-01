@@ -1,5 +1,5 @@
 URxvt*termName: rxvt-unicode-256color
-XURxvt.perl-ext-common: default,matcher
+URxvt.perl-ext-common: default,matcher
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
 URxvt.scrollBar: false
@@ -12,7 +12,6 @@ Xft.hintstyle: hintslight
 
 /* URxvt*font: xft:inconsolata-13 */
 URxvt*font: xft:JetBrainsMono-13
-/* URxvt*font: xft:ShareTechMono-14 */
 URxvt.letterSpace: -1
 URxvt*xftAntialias: true
 
@@ -47,7 +46,7 @@ URxvt*xftAntialias: true
 
 ! cyan
 *.color6:       #558188
-*.color14:      #4fc8ce
+*.color14:      #72DEC2
 
 ! white
 *.color7:       #c0c0c0
