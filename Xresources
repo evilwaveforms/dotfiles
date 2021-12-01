@@ -12,17 +12,20 @@ Xft.hintstyle: hintslight
 
 /* URxvt*font: xft:inconsolata-13 */
 URxvt*font: xft:JetBrainsMono-13
+XTerm*faceName: xft:JetBrainsMono-13
 URxvt.letterSpace: -1
 URxvt*xftAntialias: true
 
 ! COLORS
-*.foreground:   #c0c0c0
+*.foreground:   #949494
 *.background:   #000000
-*.cursorColor:  #6ED4BA
+/* *.cursorColor:  #6ED4BA */
+*.cursorColor:  #D79128
+
 
 ! black
 *.color0:       #080808
-*.color8:       #36393f
+*.color8:       #444444
 
 ! red
 *.color1:       #515978
@@ -49,5 +52,5 @@ URxvt*xftAntialias: true
 *.color14:      #72DEC2
 
 ! white
-*.color7:       #c0c0c0
-*.color15:      #a6a8aa
+*.color7:       #949494
+*.color15:      #c0c0c0

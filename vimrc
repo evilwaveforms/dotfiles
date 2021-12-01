@@ -33,6 +33,7 @@ Plug 'stsewd/fzf-checkout.vim'
 call plug#end()
 
 syntax on
+set redrawtime=10000
 
 let mapleader = " "
 
