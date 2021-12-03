@@ -149,9 +149,10 @@ bindsym $mod+r mode "resize"
 
 
 # startup
-exec --nostartup-id redshift
+exec --no-startup-id redshift
 exec --no-startup-id ~/.screenlayout/dualmonitor.sh
 exec --no-startup-id setxkbmap -option caps:super
+exec --no-startup-id nm-applet
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #0c0c0c #858585 #000000 #2e9ef4   #858585

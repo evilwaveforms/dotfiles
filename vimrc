@@ -3,6 +3,7 @@ set nocompatible
 
 set wildmode=longest,list,full
 set wildmenu
+set clipboard^=unnamed,unnamedplus
 
 set wildignore+=*.pyc
 set wildignore+=**/node_modules/*
