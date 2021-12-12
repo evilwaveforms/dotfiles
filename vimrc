@@ -13,24 +13,30 @@ filetype off
 
 call plug#begin('~/.vim/plugged')
 Plug 'scrooloose/nerdtree'
+Plug 'Valloric/YouCompleteMe'
+Plug 'vim-test/vim-test'
+Plug 'mbbill/undotree'
+
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-rhubarb'
-" Plug 'dense-analysis/ale'
-Plug 'Valloric/YouCompleteMe'
-Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
-Plug 'junegunn/fzf.vim'
-Plug 'mattn/emmet-vim'
+
 Plug 'sheerun/vim-polyglot'
+Plug 'stsewd/fzf-checkout.vim'
+Plug 'suy/vim-context-commentstring'
+Plug 'dbeniamine/cheat.sh-vim'
+Plug 'mattn/emmet-vim'
+" Plug 'dense-analysis/ale'
+
 Plug 'itchyny/lightline.vim'
 Plug 'iojani/silenthill.vim'
 Plug 'iojani/half-life.vim'
 Plug 'iojani/system-shock.vim'
 Plug 'ewilazarus/preto'
 Plug 'cocopon/iceberg.vim'
-Plug 'suy/vim-context-commentstring'
-Plug 'dbeniamine/cheat.sh-vim'
-Plug 'stsewd/fzf-checkout.vim'
 call plug#end()
 
 syntax on
@@ -79,8 +85,12 @@ let g:user_emmet_settings = {
 " YCM
 nnoremap <silent> <Leader>gd :YcmCompleter GoTo<CR>
 nnoremap <silent> <Leader>gr :YcmCompleter GoToReferences<CR>
+nnoremap <silent> <Leader>doc :YcmCompleter GetDoc<CR>
 
 map <F3> :NERDTreeToggle<CR>
+map <F4> :NERDTreeFind<cr>
+
+nnoremap <leader>ut :UndotreeToggle<CR>
 
 " fzf
 nnoremap <C-p> :Files<CR>
@@ -95,6 +105,12 @@ nnoremap <leader>l :Lines<CR>
 nmap <leader>gs :G<CR>
 nmap <leader>gf :diffget //2<CR>
 nmap <leader>gj :diffget //3<CR>
+
+" vim-test
+nmap <silent> <leader>tt :TestNearest<CR>
+nmap <silent> <leader>tf :TestFile<CR>
+nmap <silent> <leader>tl :TestLast<CR>
+nmap <silent> <leader>tv :TestVisit<CR>
 
 nnoremap <leader>gc :GBranches<CR>
 
@@ -142,6 +158,22 @@ set autoindent
 autocmd Filetype html,javascript,vue setlocal ts=2 sw=2 expandtab
 
 runtime macros/matchit.vim
+
+let g:undotree_SetFocusWhenToggle = 1
+
+if has("persistent_undo")
+   let target_path = expand('~/.undodir')
+
+    " create the directory and any parent directories
+    " if the location does not exist.
+    if !isdirectory(target_path)
+        call mkdir(target_path, "p", 0700)
+    endif
+
+    let &undodir=target_path
+    set undofile
+endif
+
 
 " highlight current line
 set cursorline
