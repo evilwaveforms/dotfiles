@@ -123,6 +123,7 @@ vnoremap > >gv
 
 nnoremap <leader><space> :nohlsearch<CR>
 
+let g:CheatDoNotReplaceKeywordPrg=1
 
 " commit msg tooltip
 nmap <silent><Leader>gb :call setbufvar(winbufnr(popup_atcursor(split(system("git log -n 1 -L " . line(".") . ",+1:" . expand("%:p")), "\n"), { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })), "&filetype", "git")<CR>
@@ -155,7 +156,7 @@ set shiftwidth=4
 set expandtab
 set autoindent
 
-autocmd Filetype html,javascript,vue setlocal ts=2 sw=2 expandtab
+autocmd Filetype html,htmldjango,javascript,vue setlocal ts=2 sw=2 expandtab
 
 runtime macros/matchit.vim
 
