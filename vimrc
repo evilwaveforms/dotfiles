@@ -30,13 +30,13 @@ Plug 'suy/vim-context-commentstring'
 Plug 'dbeniamine/cheat.sh-vim'
 Plug 'mattn/emmet-vim'
 " Plug 'dense-analysis/ale'
+Plug 'psf/black', { 'branch': 'stable' }
 
 Plug 'itchyny/lightline.vim'
 Plug 'iojani/silenthill.vim'
 Plug 'iojani/half-life.vim'
 Plug 'iojani/system-shock.vim'
 Plug 'ewilazarus/preto'
-Plug 'cocopon/iceberg.vim'
 call plug#end()
 
 syntax on
@@ -79,7 +79,9 @@ let g:user_emmet_settings = {
             \}
 
 " Ale
-" let g:ale_linter = {'python': ['flake8']}
+" let g:ale_linters = {'python': ['flake8']}
+" let g:ale_fixers = {}
+" let g:ale_fixers.python = ['black']
 "
 
 " YCM
@@ -175,9 +177,10 @@ if has("persistent_undo")
     set undofile
 endif
 
-
-" highlight current line
+" highlight current lineNr
 set cursorline
+set cursorlineopt=number
+
 " Display 5 lines above/below the cursor when scrolling with a mouse.
 set scrolloff=5
 " Fixes common backspace problems

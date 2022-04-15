@@ -15,7 +15,7 @@ shopt -s checkwinsize
 
 #export PS1='\e[2;31m\u@\h:\e[0m\e[0;36m\w\e[0m \e[0;37m#\e[0m '
 
-export PS1='\[\e[2;31m\]\u@\h:\[\e[0m\]\[\e[0;36m\]\w\[\e[0m\] \[\e[0;37m\]#\[\e[0m\] '
+export PS1='\[\e[2;31m\]\u@\h:\[\e[0m\]\[\e[0;34m\]\w\[\e[0m\] \[\e[0;37m\]#\[\e[0m\] '
 
 export PATH=$PATH:$HOME/.npm-global/bin
 
@@ -37,4 +37,3 @@ fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 source /usr/share/doc/fzf/examples/key-bindings.bash
-source /usr/share/doc/fzf/examples/completion.bash
