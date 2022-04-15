@@ -17,6 +17,9 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'vim-test/vim-test'
 Plug 'mbbill/undotree'
 
+Plug 'vim-pandoc/vim-pandoc'
+Plug 'vim-pandoc/vim-pandoc-syntax'
+
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
@@ -33,9 +36,9 @@ Plug 'mattn/emmet-vim'
 Plug 'psf/black', { 'branch': 'stable' }
 
 Plug 'itchyny/lightline.vim'
-Plug 'iojani/silenthill.vim'
-Plug 'iojani/half-life.vim'
-Plug 'iojani/system-shock.vim'
+Plug 'janituo/silenthill.vim'
+Plug 'janituo/half-life.vim'
+Plug 'janituo/system-shock.vim'
 Plug 'ewilazarus/preto'
 call plug#end()
 
@@ -113,6 +116,10 @@ nmap <silent> <leader>tt :TestNearest<CR>
 nmap <silent> <leader>tf :TestFile<CR>
 nmap <silent> <leader>tl :TestLast<CR>
 nmap <silent> <leader>tv :TestVisit<CR>
+
+let g:pandoc#formatting#mode = 'h' " A'
+let g:pandoc#formatting#textwidth = 72
+let g:pandoc#modules#disabled = ['folding']
 
 nnoremap <leader>gc :GBranches<CR>
 
