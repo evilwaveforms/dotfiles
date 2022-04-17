@@ -60,7 +60,7 @@ let g:lightline = {
 
 set background=dark
 set termguicolors
-colorscheme system-shock
+colorscheme system-shock-gr
 
 if &term =~ '256color'
     " Disable Background Color Erase (BCE) so that color schemes

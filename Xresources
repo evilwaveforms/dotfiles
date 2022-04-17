@@ -11,8 +11,8 @@ Xft.hinting:            true
 Xft.hintstyle: hintslight
 
 /* URxvt*font: xft:inconsolata-13 */
-URxvt*font: xft:JetBrainsMono-13
-XTerm*faceName: xft:JetBrainsMono-13
+URxvt*font: xft:JetBrainsMono-14
+XTerm*faceName: xft:JetBrainsMono-14
 URxvt.letterSpace: -1
 URxvt*xftAntialias: true
 
