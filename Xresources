@@ -39,7 +39,7 @@ URxvt*xftAntialias: true
 
 /* ! yellow */
 *.color3: #D79128
-*color11: #c38e45
+*color11: #FB7F0C
 
 ! blue
 *.color4: #5278BD

@@ -18,6 +18,8 @@ shopt -s checkwinsize
 export PS1='\[\e[2;31m\]\u@\h:\[\e[0m\]\[\e[0;34m\]\w\[\e[0m\] \[\e[0;37m\]#\[\e[0m\] '
 
 export PATH=$PATH:$HOME/.npm-global/bin
+export PATH=$PATH:/usr/local/go/bin
+export PATH=$PATH:$HOME/go/bin
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases

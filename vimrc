@@ -34,6 +34,7 @@ Plug 'dbeniamine/cheat.sh-vim'
 Plug 'mattn/emmet-vim'
 " Plug 'dense-analysis/ale'
 Plug 'psf/black', { 'branch': 'stable' }
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 Plug 'itchyny/lightline.vim'
 Plug 'janituo/silenthill.vim'
@@ -60,7 +61,7 @@ let g:lightline = {
 
 set background=dark
 set termguicolors
-colorscheme system-shock-gr
+colorscheme half-life
 
 if &term =~ '256color'
     " Disable Background Color Erase (BCE) so that color schemes
@@ -141,8 +142,8 @@ nmap <silent><Leader>gb :call setbufvar(winbufnr(popup_atcursor(split(system("gi
 highlight ColorColumn ctermbg=magenta
 call matchadd('ColorColumn', '\%81v', 100)
 
-exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
-set list
+" exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
+" set list
 
 set hidden
 
@@ -217,6 +218,21 @@ set incsearch
 set ignorecase
 " include only uppercase words with uppercase search term
 set smartcase
+
+
+let g:go_fmt_autosave = 1
+let g:go_gopls_enabled = 1
+let g:go_highlight_types = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_functions = 1
+let g:go_highlight_function_calls = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_extra_types = 1
+let g:go_highlight_variable_declarations = 1
+let g:go_highlight_variable_assignments = 1
+let g:go_highlight_build_constraints = 1
+let g:go_highlight_diagnostic_errors = 1
+let g:go_highlight_diagnostic_warnings = 1
 
 " " Store info from no more than 100 files at a time, 9999 lines of text,
 " 100kb of data. Useful for copying large amounts of data between files.
