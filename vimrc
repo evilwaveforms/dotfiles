@@ -30,7 +30,6 @@ Plug 'tpope/vim-rhubarb'
 Plug 'sheerun/vim-polyglot'
 Plug 'stsewd/fzf-checkout.vim'
 Plug 'suy/vim-context-commentstring'
-Plug 'dbeniamine/cheat.sh-vim'
 Plug 'mattn/emmet-vim'
 " Plug 'dense-analysis/ale'
 Plug 'psf/black', { 'branch': 'stable' }
@@ -132,8 +131,6 @@ vnoremap < <gv
 vnoremap > >gv
 
 nnoremap <leader><space> :nohlsearch<CR>
-
-let g:CheatDoNotReplaceKeywordPrg=1
 
 " commit msg tooltip
 nmap <silent><Leader>gb :call setbufvar(winbufnr(popup_atcursor(split(system("git log -n 1 -L " . line(".") . ",+1:" . expand("%:p")), "\n"), { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })), "&filetype", "git")<CR>
