@@ -20,6 +20,7 @@ export PS1='\[\e[2;31m\]\u@\h:\[\e[0m\]\[\e[0;34m\]\w\[\e[0m\] \[\e[0;37m\]#\[\e
 export PATH=$PATH:$HOME/.npm-global/bin
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/go/bin
+export PATH=$PATH:$HOME/.cargo/bin
 
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases

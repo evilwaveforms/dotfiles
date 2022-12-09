@@ -21,7 +21,8 @@ set $mod Mod4
 # font pango: Inconsolata 12
 # font pango: Flexi IBM VGA True(437) 14
 # font pango: Monospace 12
-font pango: CozetteVector 14
+# font pango: CozetteVector 14
+font pango: DinaRemasterII 16
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod

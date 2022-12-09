@@ -10,9 +10,11 @@ Xft.rgba:               rgb
 Xft.hinting:            true
 Xft.hintstyle: hintslight
 
-/* URxvt*font: xft:inconsolata-13 */
-URxvt*font: xft:JetBrainsMono-14
-XTerm*faceName: xft:JetBrainsMono-14
+/* URxvt*font: xft:JetBrainsMono-14 */
+/* XTerm*faceName: xft:JetBrainsMono-14 */
+URxvt*font: xft:DinaRemasterII-20
+XTerm*faceName: xft:DinaRemasterII-20
+
 URxvt.letterSpace: -1
 URxvt*xftAntialias: true
 
