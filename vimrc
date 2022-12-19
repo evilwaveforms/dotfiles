@@ -37,10 +37,8 @@ Plug 'psf/black', { 'branch': 'stable' }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 Plug 'itchyny/lightline.vim'
-Plug 'janituo/silenthill.vim'
-Plug 'janituo/half-life.vim'
-Plug 'janituo/system-shock.vim'
-Plug 'ewilazarus/preto'
+Plug 'evilwaveforms/half-life.vim'
+Plug 'evilwaveforms/system-shock.vim'
 call plug#end()
 
 syntax on

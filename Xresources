@@ -33,7 +33,7 @@ URxvt*xftAntialias: true
 
 ! red
 *.color1: #591102
-*.color9: #778099
+*.color9: #B60B19
 
 /* ! green */
 *.color2: #3F9834
