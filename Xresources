@@ -23,7 +23,7 @@ URxvt*xftAntialias: true
 *.background:   #000000
 /* *.cursorColor:  #6ED4BA */
 /* *.cursorColor:  #D79128 */
-*.cursorColor:  #3F9834
+*.cursorColor:  #949494
 /* *.cursorColor:  #949494 */
 
 
@@ -33,7 +33,7 @@ URxvt*xftAntialias: true
 
 ! red
 *.color1: #591102
-*.color9: #B60B19
+*.color9: #880808
 
 /* ! green */
 *.color2: #3F9834
@@ -53,7 +53,7 @@ URxvt*xftAntialias: true
 
 ! cyan
 *.color6: #558188
-*.color14: #72DEC2
+*.color14: #70C098
 
 ! white
 *.color7: #949494
