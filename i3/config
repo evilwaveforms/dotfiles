@@ -86,9 +86,8 @@ bindsym $mod+a focus parent
 # focus the child container
 #bindsym $mod+d focus child
 
-# switch to workspace
-# A 3 px border
-new_window normal 3
+# Hide title bar
+default_border pixel
 
 hide_edge_borders smart
 
@@ -154,7 +153,7 @@ exec --no-startup-id nm-applet
 exec --no-startup-id feh --bg-fill --randomize ~/wallpapers/*
 
 # class                 border  backgr. text    indicator child_border
-client.focused          #0c0c0c #858585 #000000 #858585   #858585
+client.focused          #0c0c0c #858585 #000000 #555555   #555555
 client.focused_inactive #333333 #363636 #888888 #000000   #000000
 client.unfocused        #333333 #222222 #888888 #000000   #000000
 client.urgent           #2f343a #900000 #ffffff #900000   #000000
