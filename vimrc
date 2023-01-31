@@ -17,9 +17,6 @@ Plug 'Valloric/YouCompleteMe'
 Plug 'vim-test/vim-test'
 Plug 'mbbill/undotree'
 
-Plug 'vim-pandoc/vim-pandoc'
-Plug 'vim-pandoc/vim-pandoc-syntax'
-
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
@@ -30,10 +27,6 @@ Plug 'tpope/vim-rhubarb'
 
 Plug 'sheerun/vim-polyglot'
 Plug 'stsewd/fzf-checkout.vim'
-Plug 'suy/vim-context-commentstring'
-Plug 'mattn/emmet-vim'
-" Plug 'dense-analysis/ale'
-Plug 'psf/black', { 'branch': 'stable' }
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 Plug 'itchyny/lightline.vim'
@@ -70,26 +63,11 @@ endif
 " filetype plugins
 filetype plugin indent on
 
-" emmet
-let g:user_emmet_leader_key=','
-let g:user_emmet_install_global=0
-autocmd Filetype html,htmldjango,css,scss,php,javascript,vue EmmetInstall
-let g:user_emmet_settings = {
-            \ 'javascript' : {
-            \   'extends' : 'jsx',
-            \ },
-            \}
-
-" Ale
-" let g:ale_linters = {'python': ['flake8']}
-" let g:ale_fixers = {}
-" let g:ale_fixers.python = ['black']
-"
-
 " YCM
 nnoremap <silent> <Leader>gd :YcmCompleter GoTo<CR>
 nnoremap <silent> <Leader>gr :YcmCompleter GoToReferences<CR>
 nnoremap <silent> <Leader>doc :YcmCompleter GetDoc<CR>
+nmap <leader>D <plug>(YCMHover)
 
 map <F3> :NERDTreeToggle<CR>
 map <F4> :NERDTreeFind<cr>
@@ -98,12 +76,13 @@ nnoremap <leader>ut :UndotreeToggle<CR>
 
 " fzf
 nnoremap <C-p> :Files<CR>
-nnoremap <C-g> :GFiles<CR>
+nnoremap <C-g> :GFiles?<CR>
 nnoremap <C-f> :Rg!<CR>
 nnoremap <leader>b :Buffer<CR>
 nnoremap <leader>g :BCommits<CR>
-nnoremap <leader>gg :GFiles?<CR>
+" nnoremap <leader>gg :GFiles?<CR>
 nnoremap <leader>l :Lines<CR>
+let g:fzf_preview_window = ['right,50%,<70(up,40%)', 'ctrl-/']
 
 " fugitive
 nmap <leader>gs :G<CR>
@@ -115,10 +94,6 @@ nmap <silent> <leader>tt :TestNearest<CR>
 nmap <silent> <leader>tf :TestFile<CR>
 nmap <silent> <leader>tl :TestLast<CR>
 nmap <silent> <leader>tv :TestVisit<CR>
-
-let g:pandoc#formatting#mode = 'h' " A'
-let g:pandoc#formatting#textwidth = 72
-let g:pandoc#modules#disabled = ['folding']
 
 nnoremap <leader>gc :GBranches<CR>
 
@@ -199,11 +174,8 @@ set showmode
 set showcmd
 
 set matchpairs+=<:>
-
 set number relativenumber
-
 set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ [BUFFER=%n]\ %{strftime('%c')}
-
 set encoding=UTF-8
 
 " highlight matching search patterns
@@ -214,7 +186,6 @@ set incsearch
 set ignorecase
 " include only uppercase words with uppercase search term
 set smartcase
-
 
 let g:go_fmt_autosave = 1
 let g:go_gopls_enabled = 1
@@ -238,14 +209,3 @@ set viminfo='100,<9999,s100
 nnoremap <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
             \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
             \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
-
-" folding
-" set foldmethod=syntax
-" set foldlevelstart=99
-"
-" " Automatically save and load folds
-" autocmd BufWinLeave *.* mkview
-" autocmd BufWinEnter *.* silent loadview"
-
-let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
-let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
