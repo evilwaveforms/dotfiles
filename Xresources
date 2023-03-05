@@ -12,8 +12,8 @@ Xft.hintstyle: hintslight
 
 /* URxvt*font: xft:JetBrainsMono-14 */
 /* XTerm*faceName: xft:JetBrainsMono-14 */
-URxvt*font: xft:DinaRemasterII-20
-XTerm*faceName: xft:DinaRemasterII-20
+URxvt*font: xft:DinaRemasterII-22
+XTerm*faceName: xft:DinaRemasterII-22
 
 URxvt.letterSpace: -1
 URxvt*xftAntialias: true
@@ -41,7 +41,7 @@ URxvt*xftAntialias: true
 
 /* ! yellow */
 *.color3: #D79128
-*color11: #FB7F0C
+*.color11: #FB7F0C
 
 ! blue
 *.color4: #5278BD

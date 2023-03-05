@@ -67,7 +67,7 @@ filetype plugin indent on
 nnoremap <silent> <Leader>gd :YcmCompleter GoTo<CR>
 nnoremap <silent> <Leader>gr :YcmCompleter GoToReferences<CR>
 nnoremap <silent> <Leader>doc :YcmCompleter GetDoc<CR>
-nmap <leader>D <plug>(YCMHover)
+nmap <leader>k <plug>(YCMHover)
 
 map <F3> :NERDTreeToggle<CR>
 map <F4> :NERDTreeFind<cr>
