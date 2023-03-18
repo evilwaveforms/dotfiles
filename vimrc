@@ -30,7 +30,6 @@ Plug 'stsewd/fzf-checkout.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 
 Plug 'itchyny/lightline.vim'
-Plug 'evilwaveforms/half-life.vim'
 Plug 'evilwaveforms/system-shock.vim'
 call plug#end()
 

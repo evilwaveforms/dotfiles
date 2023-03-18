@@ -1,2 +1,4 @@
 set recolor-lightcolor "#949494"
-set recolor-darkcolor "#d7d8d8"
+set recolor-darkcolor "#000000"
+map <C-l> feedkeys ":blist <Tab>"
+map <C-m> feedkeys ":bmark"
