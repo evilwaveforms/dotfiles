@@ -28,8 +28,8 @@ Plug 'tpope/vim-rhubarb'
 Plug 'sheerun/vim-polyglot'
 Plug 'stsewd/fzf-checkout.vim'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'rust-lang/rust.vim'
 
-Plug 'itchyny/lightline.vim'
 Plug 'evilwaveforms/system-shock.vim'
 call plug#end()
 
@@ -37,17 +37,6 @@ syntax on
 set redrawtime=10000
 
 let mapleader = " "
-
-let g:lightline = {
-            \ 'colorscheme': 'systemshock',
-            \ 'active': {
-            \   'left': [ [ 'mode', 'paste' ],
-            \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-            \ },
-            \ 'component_function': {
-            \   'gitbranch': 'FugitiveHead'
-            \ },
-            \ }
 
 set background=dark
 set termguicolors
@@ -174,7 +163,29 @@ set showcmd
 
 set matchpairs+=<:>
 set number relativenumber
-set statusline=%F%m%r%h%w\ [FORMAT=%{&ff}]\ [TYPE=%Y]\ [POS=%l,%v][%p%%]\ [BUFFER=%n]\ %{strftime('%c')}
+
+function! GitBranch()
+  return system("git rev-parse --abbrev-ref HEAD 2>/dev/null | tr -d '\n'")
+endfunction
+
+function! StatuslineGit()
+  let l:branchname = GitBranch()
+  return strlen(l:branchname) > 0?'  '.l:branchname.' ':''
+endfunction
+
+set statusline=
+set statusline+=%#LineNr#
+set statusline+=%{StatuslineGit()}
+set statusline+=\ %f
+set statusline+=%m
+set statusline+=%=
+set statusline+=\ %y
+" set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
+" set statusline+=\%{&fileformat}
+set statusline+=\ %l:%c
+set statusline+=\ %p%%
+set statusline+=\
+
 set encoding=UTF-8
 
 " highlight matching search patterns

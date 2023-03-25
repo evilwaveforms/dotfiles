@@ -3,8 +3,7 @@ URxvt.perl-ext-common: default,matcher
 URxvt.url-launcher: /usr/bin/xdg-open
 URxvt.matcher.button: 1
 URxvt.scrollBar: false
-/* Xft.dpi:                108x107 */
-Xft.dpi:                106
+Xft.dpi:                110
 Xft.antialias:          true
 Xft.rgba:               rgb
 Xft.hinting:            true
@@ -12,8 +11,8 @@ Xft.hintstyle: hintslight
 
 /* URxvt*font: xft:JetBrainsMono-14 */
 /* XTerm*faceName: xft:JetBrainsMono-14 */
-URxvt*font: xft:DinaRemasterII-22
-XTerm*faceName: xft:DinaRemasterII-22
+URxvt*font: xft:DinaRemasterII-20
+XTerm*faceName: xft:DinaRemasterII-20
 
 URxvt.letterSpace: -1
 URxvt*xftAntialias: true
@@ -24,7 +23,6 @@ URxvt*xftAntialias: true
 /* *.cursorColor:  #6ED4BA */
 /* *.cursorColor:  #D79128 */
 *.cursorColor:  #949494
-/* *.cursorColor:  #949494 */
 
 
 ! black
