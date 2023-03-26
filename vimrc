@@ -183,7 +183,7 @@ set statusline+=\ %y
 " set statusline+=\ %{&fileencoding?&fileencoding:&encoding}
 " set statusline+=\%{&fileformat}
 set statusline+=\ %l:%c
-set statusline+=\ %p%%
+set statusline+=\ %p%\%
 
 set encoding=UTF-8
 
