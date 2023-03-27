@@ -13,7 +13,7 @@ shopt -s checkwinsize
 # export TERM=rxvt-unicode-256color
 # force_color_prompt=yes
 
-export PS1='\[\e[2;31m\]\u@\h:\[\e[0m\]\[\e[0;36m\]\w\[\e[0m\] \[\e[0;37m\]#\[\e[0m\] '
+export PS1='\e[2;31m\u@\h:\e[0;34m\w\e[0m \e[0;37m# \e[0m'
 
 export PATH=$PATH:$HOME/.npm-global/bin
 export PATH=$PATH:/usr/local/go/bin
