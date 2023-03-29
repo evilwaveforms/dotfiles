@@ -1,18 +1,15 @@
 #!/bin/bash
-###
 # creates symlinks from ~ to dotfiles in ~/dotfiles
-###
 
 dir=~/dotfiles              # dotfiles directory
 olddir=~/dotfiles_old       # backup directory for old dotfiles
-files="bashrc vimrc Xresources xinitrc xbindkeysrc compton.conf i3 i3blocks.conf zathura tmux.conf ncmpcpp" # files/folders to symlink
+files="bashrc vimrc Xresources xinitrc xbindkeysrc compton.conf i3 i3blocks.conf tmux.conf ncmpcpp"
+cdirs="zathura nvim" # ~/.config/x
 
-# create backup directory for old dotfiles
 echo "Creating $olddir for backup of any existing dotfiles in ~"
 mkdir -p $olddir
 echo "...done"
 
-# change to the dotfiles directory
 echo "Changing to the $dir directory"
 cd $dir
 echo "...done"
@@ -24,4 +21,9 @@ for file in $files; do
     mv ~/.$file ~/dotfiles_old/
     echo "Creating symlink to $file in home directory."
     ln -s $dir/$file ~/.$file
+done
+
+for cdir in $cdirs; do
+    mv ~/.config/$cdir ~/dotfiles_old/
+    ln -s $dir/$cdir ~/.config/$cdir
 done
