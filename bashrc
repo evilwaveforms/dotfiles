@@ -13,7 +13,7 @@ shopt -s checkwinsize
 # export TERM=rxvt-unicode-256color
 # force_color_prompt=yes
 
-export PS1='\e[2;31m\u@\h:\e[0;34m\w\e[0m \e[0;37m# \e[0m'
+export PS1="\[\033[38;5;1m\]\u@\h:\[$(tput sgr0)\]\[\033[0;34m\]\w\[$(tput sgr0)\] # \[$(tput sgr0)\]"
 
 export PATH=$PATH:$HOME/.npm-global/bin
 export PATH=$PATH:/usr/local/go/bin
@@ -21,14 +21,19 @@ export PATH=$PATH:$HOME/go/bin
 export PATH=$PATH:$HOME/.cargo/bin
 export PATH=$PATH:$HOME/.config/emacs/bin
 
+export TIME_STYLE="+%d-%m-%Y %H:%M:%S"
+
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
 
-alias rm='rm -i'
-alias mv='mv -i'
-alias untar='tar xvzf'
-alias ls='ls --color=auto'
+alias rm="rm -i"
+alias mv="mv -i"
+alias untar="tar xvzf"
+alias ls="ls --color=auto"
+alias grep="grep --color"
+alias ip="ip -c"
+alias date="date '+%a %d %b %Y %T %Z (%z)'"
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
