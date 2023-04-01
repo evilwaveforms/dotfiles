@@ -92,11 +92,15 @@ nnoremap <leader>GB :GBrowse<CR>
 vnoremap < <gv
 vnoremap > >gv
 
+nnoremap [q :cprev<CR>
+nnoremap ]q :cnext<CR>
+nnoremap [b :bprev<CR>
+nnoremap ]b :bnext<CR>
+
 nnoremap <leader><space> :nohlsearch<CR>
 
 " commit msg tooltip
 nmap <silent><Leader>gb :call setbufvar(winbufnr(popup_atcursor(split(system("git log -n 1 -L " . line(".") . ",+1:" . expand("%:p")), "\n"), { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })), "&filetype", "git")<CR>
-
 
 " highlight ColorColumn ctermbg=magenta
 " call matchadd('ColorColumn', '\%81v', 100)
@@ -105,8 +109,6 @@ nmap <silent><Leader>gb :call setbufvar(winbufnr(popup_atcursor(split(system("gi
 " set list
 
 set hidden
-
-" Turn off modelines
 set modelines=0
 
 " Automatically wrap text that extends beyond the screen length.
@@ -163,6 +165,7 @@ set showcmd
 
 set matchpairs+=<:>
 set number relativenumber
+nnoremap <silent><F11> :exec &nu ? "se nu!" : "se rnu!"<CR>
 
 set statusline=
 set statusline+=\ %f
