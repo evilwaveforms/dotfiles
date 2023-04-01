@@ -1,5 +1,6 @@
 require("mason").setup()
 require("mason-lspconfig").setup()
+require("remap")
 
 vim.diagnostic.config({
     virtual_text = false,

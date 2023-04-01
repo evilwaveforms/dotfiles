@@ -32,53 +32,17 @@ if &term =~ '256color'
     set t_ut=
 endif
 
-" filetype plugins
-" YCM
-" nnoremap <silent> <Leader>gd :YcmCompleter GoTo<CR>
-" nnoremap <silent> <Leader>gr :YcmCompleter GoToReferences<CR>
-" nnoremap <silent> <Leader>doc :YcmCompleter GetDoc<CR>
-" nmap <leader>k <plug>(YCMHover)
-
-map <F3> :NERDTreeToggle<CR>
-map <F4> :NERDTreeFind<cr>
-
-nnoremap <leader>ut :UndotreeToggle<CR>
-
-" fzf
-nnoremap <C-p> :Files<CR>
-nnoremap <C-g> :GFiles?<CR>
-nnoremap <C-f> :Rg!<CR>
-nnoremap <leader>b :Buffer<CR>
-nnoremap <leader>g :BCommits<CR>
-" nnoremap <leader>gg :GFiles?<CR>
-nnoremap <leader>l :Lines<CR>
 let g:fzf_preview_window = ['right,50%,<70(up,40%)', 'ctrl-/']
 
-" fugitive
-nmap <leader>gs :G<CR>
-nmap <leader>gf :diffget //2<CR>
-nmap <leader>gj :diffget //3<CR>
-
-" vim-test
-nmap <silent> <leader>tt :TestNearest<CR>
-nmap <silent> <leader>tf :TestFile<CR>
-nmap <silent> <leader>tl :TestLast<CR>
-nmap <silent> <leader>tv :TestVisit<CR>
-
-nnoremap <leader>gc :GBranches<CR>
 
 nmap <expr> <leader>gg &filetype ==# 'fugitiveblame' ? "gq" : ":Git blame\r"
-nnoremap <leader>GB :GBrowse<CR>
-
-" keep visual selection after indenting
-vnoremap < <gv
-vnoremap > >gv
-
-nnoremap <leader><space> :nohlsearch<CR>
-
 " commit msg tooltip
 nmap <silent><Leader>gb :call setbufvar(winbufnr(popup_atcursor(split(system("git log -n 1 -L " . line(".") . ",+1:" . expand("%:p")), "\n"), { "padding": [1,1,1,1], "pos": "botleft", "wrap": 0 })), "&filetype", "git")<CR>
 
+" syntax group under cursor
+nnoremap <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+            \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+            \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 " highlight ColorColumn ctermbg=magenta
 " call matchadd('ColorColumn', '\%81v', 100)
@@ -93,12 +57,6 @@ set modelines=0
 
 " Automatically wrap text that extends beyond the screen length.
 set wrap
-
-" Vim's auto indentation feature does not work properly with text copied
-" from outside of Vim. Press the <F2> key to toggle paste mode on/off.
-nnoremap <F2> :set invpaste paste?<CR>
-imap <F2> <C-O>:set invpaste paste?<CR>
-set pastetoggle=<F2>
 
 " tabs, indentation etc
 set tabstop=4
@@ -184,11 +142,6 @@ let g:go_highlight_diagnostic_warnings = 1
 " " Store info from no more than 100 files at a time, 9999 lines of text,
 " 100kb of data. Useful for copying large amounts of data between files.
 set viminfo='100,<9999,s100
-
-" syntax group under cursor
-nnoremap <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-            \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-            \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
 
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
