@@ -15,6 +15,7 @@ return require('packer').startup(function(use)
     use 'tpope/vim-commentary'
     use 'tpope/vim-rhubarb'
     use 'shumphrey/fugitive-gitlab.vim'
+    use 'rhysd/git-messenger.vim'
 
     use {'fatih/vim-go', run = ':call GoUpdateBinaries()' }
     use 'rust-lang/rust.vim'
