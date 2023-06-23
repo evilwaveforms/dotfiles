@@ -34,6 +34,7 @@ alias ls="ls --color=auto"
 alias grep="grep --color"
 alias ip="ip -c"
 alias date="date '+%a %d %b %Y %T %Z (%z)'"
+alias np="mpc current && mpc current | xclip -sel clip"
 
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
