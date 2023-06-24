@@ -50,16 +50,9 @@ return require('packer').startup(function(use)
         }
     }
 
-
-    -- Simple plugins can be specified as strings
-    -- use 'rstacruz/vim-closer'
-
     -- Lazy loading:
     -- Load on specific commands
     use {'tpope/vim-dispatch', opt = true, cmd = {'Dispatch', 'Make', 'Focus', 'Start'}}
-
-    -- Load on an autocommand event
-    -- use {'andymass/vim-matchup', event = 'VimEnter'}
 
     -- Load on a combination of conditions: specific filetypes or commands
     -- Also run code after load (see the "config" key)
@@ -69,20 +62,4 @@ return require('packer').startup(function(use)
     --   cmd = 'ALEEnable',
     --   config = 'vim.cmd[[ALEEnable]]'
     -- }
-
-    -- Local plugins can be included
-    -- use '~/projects/personal/hover.nvim'
-
-    -- Plugins can have post-install/update hooks
-    -- use {'iamcco/markdown-preview.nvim', run = 'cd app && yarn install', cmd = 'MarkdownPreview'}
-
-    -- Post-install/update hook with neovim command
-    -- use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
-
-    -- You can specify multiple plugins in a single call
-    -- use {'tjdevries/colorbuddy.vim', {'nvim-treesitter/nvim-treesitter', opt = true}}
-
-    -- You can alias plugin names
-    -- use {'dracula/vim', as = 'dracula'}
-    --
 end)

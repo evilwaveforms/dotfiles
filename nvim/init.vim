@@ -4,23 +4,10 @@ lua require('init')
 set wildmode=longest,list,full
 set wildmenu
 set clipboard^=unnamed,unnamedplus
-
-set wildignore+=*.pyc
-set wildignore+=**/node_modules/*
+set wildignore+=*.pyc,*/node_modules/*,*.o
 
 set redrawtime=10000
 let mapleader = " "
-
-let g:lightline = {
-            \ 'colorscheme': 'systemshock',
-            \ 'active': {
-            \   'left': [ [ 'mode', 'paste' ],
-            \             [ 'gitbranch', 'readonly', 'filename', 'modified' ] ]
-            \ },
-            \ 'component_function': {
-            \   'gitbranch': 'FugitiveHead'
-            \ },
-            \ }
 
 set background=dark
 set termguicolors
@@ -70,7 +57,7 @@ runtime macros/matchit.vim
 let g:undotree_SetFocusWhenToggle = 1
 
 if has("persistent_undo")
-   let target_path = expand('~/.undodir')
+   let target_path = expand('~/.nundodir')
 
     " create the directory and any parent directories
     " if the location does not exist.
