@@ -1,5 +1,4 @@
 let mapleader = " "
-lua require('plugins')
 lua require('init')
 
 set wildmode=longest,list,full
