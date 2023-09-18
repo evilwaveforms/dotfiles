@@ -45,6 +45,7 @@ require('mason-lspconfig').setup({
 })
 
 local cmp = require('cmp')
+local cmp_action = require('lsp-zero').cmp_action()
 local cmp_format = lsp_zero.cmp_format()
 
 cmp.setup({
@@ -53,7 +54,14 @@ cmp.setup({
     -- scroll up and down the documentation window
     ['<C-u>'] = cmp.mapping.scroll_docs(-4),
     ['<C-d>'] = cmp.mapping.scroll_docs(4),
+    ['<CR>'] = cmp.mapping.confirm({select = false}),
+    ['<Tab>'] = cmp_action.tab_complete(),
+    ['<S-Tab>'] = cmp_action.select_prev_or_fallback(),
   }),
+  window = {
+    completion = cmp.config.window.bordered(),
+    documentation = cmp.config.window.bordered(),
+  }
 })
 
 vim.diagnostic.config({
