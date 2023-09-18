@@ -1,9 +1,63 @@
-require("mason").setup()
-require("mason-lspconfig").setup()
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
+  })
+end
+vim.opt.rtp:prepend(lazypath)
+require("lazy").setup("plugins", opt)
 require("remap")
 
+local lsp_zero = require('lsp-zero')
+
+lsp_zero.on_attach(function(client, bufnr)
+  -- see :help lsp-zero-keybindings
+  -- to learn the available actions
+  client.server_capabilities.semanticTokensProvider = nil
+  vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+  vim.keymap.set("n", "<leader>gr", function() vim.lsp.buf.references() end, opts)
+  vim.keymap.set("n", "<leader>k", function() vim.lsp.buf.hover() end, opts)
+  vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
+  vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
+  vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
+  vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
+  vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
+  vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts)
+  vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+  lsp_zero.default_keymaps({buffer = bufnr})
+end)
+
+require('mason').setup({})
+require('mason-lspconfig').setup({
+  ensure_installed = {},
+  handlers = {
+    lsp_zero.default_setup,
+    lua_ls = function()
+      local lua_opts = lsp_zero.nvim_lua_ls()
+      require('lspconfig').lua_ls.setup(lua_opts)
+    end,
+  }
+})
+
+local cmp = require('cmp')
+local cmp_format = lsp_zero.cmp_format()
+
+cmp.setup({
+  formatting = cmp_format,
+  mapping = cmp.mapping.preset.insert({
+    -- scroll up and down the documentation window
+    ['<C-u>'] = cmp.mapping.scroll_docs(-4),
+    ['<C-d>'] = cmp.mapping.scroll_docs(4),
+  }),
+})
+
 vim.diagnostic.config({
-    virtual_text = false,
+    virtual_text = true,
     signs = true,
     update_in_insert = true,
     underline = true,
@@ -20,56 +74,3 @@ vim.cmd([[
 set signcolumn=yes
 autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
 ]])
-
--- Completion Plugin Setup
-local cmp = require'cmp'
-cmp.setup({
-    -- Enable LSP snippets
-    snippet = {
-        expand = function(args)
-            vim.fn["vsnip#anonymous"](args.body)
-        end,
-    },
-    mapping = {
-        ['<C-p>'] = cmp.mapping.select_prev_item(),
-        ['<C-n>'] = cmp.mapping.select_next_item(),
-        -- Add tab support
-        ['<S-Tab>'] = cmp.mapping.select_prev_item(),
-        ['<Tab>'] = cmp.mapping.select_next_item(),
-        ['<C-S-f>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-f>'] = cmp.mapping.scroll_docs(4),
-        ['<C-Space>'] = cmp.mapping.complete(),
-        ['<C-e>'] = cmp.mapping.close(),
-        ['<CR>'] = cmp.mapping.confirm({
-            behavior = cmp.ConfirmBehavior.Insert,
-            select = true,
-        })
-    },
-    -- Installed sources:
-    sources = {
-        { name = 'path' },                              -- file paths
-        { name = 'nvim_lsp', keyword_length = 3 },      -- from language server
-        { name = 'nvim_lsp_signature_help'},            -- display function signatures with current parameter emphasized
-        { name = 'nvim_lua', keyword_length = 2},       -- complete neovim's Lua runtime API such vim.lsp.*
-        { name = 'buffer', keyword_length = 2 },        -- source current buffer
-        { name = 'vsnip', keyword_length = 2 },         -- nvim-cmp source for vim-vsnip 
-        { name = 'calc'},                               -- source for math calculation
-    },
-    window = {
-        completion = cmp.config.window.bordered(),
-        documentation = cmp.config.window.bordered(),
-    },
-    formatting = {
-        fields = {'menu', 'abbr', 'kind'},
-        format = function(entry, item)
-            local menu_icon ={
-                nvim_lsp = 'λ',
-                vsnip = '⋗',
-                buffer = 'Ω',
-                path = '🖫',
-            }
-            item.menu = menu_icon[entry.source.name]
-            return item
-        end,
-    },
-})

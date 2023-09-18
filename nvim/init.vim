@@ -1,3 +1,4 @@
+let mapleader = " "
 lua require('plugins')
 lua require('init')
 
@@ -7,7 +8,6 @@ set clipboard^=unnamed,unnamedplus
 set wildignore+=*.pyc,*/node_modules/*,*.o
 
 set redrawtime=10000
-let mapleader = " "
 
 set background=dark
 set termguicolors
