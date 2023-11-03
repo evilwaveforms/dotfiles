@@ -11,6 +11,7 @@ return {
     "tpope/vim-rhubarb",
     "shumphrey/fugitive-gitlab.vim",
     "rhysd/git-messenger.vim",
+    "stsewd/fzf-checkout.vim",
 
     {"fatih/vim-go", build = ":call GoUpdateBinaries()" },
     "rust-lang/rust.vim",
@@ -18,9 +19,7 @@ return {
     "scrooloose/nerdtree",
     "vim-test/vim-test",
     "mbbill/undotree",
-
-    "williamboman/mason.nvim",
-    "williamboman/mason-lspconfig.nvim",
+    "puremourning/vimspector",
 
     {"VonHeikemen/lsp-zero.nvim", branch = "v3.x"},
 
@@ -30,15 +29,8 @@ return {
     {"williamboman/mason-lspconfig.nvim"},
 
     -- Autocompletion
-    {"hrsh7th/nvim-cmp"},         -- Required
-    {"hrsh7th/cmp-nvim-lsp"},     -- Required
-    {"hrsh7th/cmp-buffer"},       -- Optional
-    {"hrsh7th/cmp-path"},         -- Optional
-    {"saadparwaiz1/cmp_luasnip"}, -- Optional
-    {"hrsh7th/cmp-nvim-lua"},     -- Optional
-
-    -- Snippets
-    {"L3MON4D3/LuaSnip"},             -- Required
+    {"hrsh7th/nvim-cmp"},
+    {"hrsh7th/cmp-nvim-lsp"},
 
     -- Lazy loading:
     -- Load on specific commands
