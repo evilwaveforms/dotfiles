@@ -2,9 +2,7 @@ vim.g.mapleader = " "
 
 vim.keymap.set("n", "<leader><space>", "<cmd>nohlsearch<CR>")
 
-vim.keymap.set("n", "F3",  "<cmd>NERDTreeToggle<CR>")
-vim.keymap.set("n", "F4",  "<cmd>NERDTreeFind<CR>")
-
+vim.keymap.set("n", "<leader>nt", "<cmd>Lexplore<CR>")
 vim.keymap.set("n", "<leader>ut",  "<cmd>UndotreeToggle<CR>")
 
 -- fzf

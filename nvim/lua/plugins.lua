@@ -16,7 +16,6 @@ return {
     {"fatih/vim-go", build = ":call GoUpdateBinaries()" },
     "rust-lang/rust.vim",
 
-    "scrooloose/nerdtree",
     "vim-test/vim-test",
     "mbbill/undotree",
     "puremourning/vimspector",
