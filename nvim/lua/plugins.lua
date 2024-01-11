@@ -30,6 +30,7 @@ return {
     -- Autocompletion
     {"hrsh7th/nvim-cmp"},
     {"hrsh7th/cmp-nvim-lsp"},
+    {"L3MON4D3/LuaSnip"},
 
     -- Lazy loading:
     -- Load on specific commands
