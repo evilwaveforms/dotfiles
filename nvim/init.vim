@@ -34,6 +34,11 @@ nnoremap <leader>h :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") .
 " exec "set listchars=tab:\uBB\uBB,trail:\uB7,nbsp:~"
 " set list
 
+augroup highlight_yank
+    autocmd!
+    au TextYankPost * silent! lua vim.highlight.on_yank{higroup="IncSearch", timeout=350}
+augroup END
+
 set hidden
 
 " Turn off modelines
