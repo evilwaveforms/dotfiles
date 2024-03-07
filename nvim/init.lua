@@ -104,5 +104,4 @@ vim.g.go_highlight_variable_assignments = 1
 vim.g.go_highlight_build_constraints = 1
 vim.g.go_highlight_diagnostic_errors = 1
 vim.g.go_highlight_diagnostic_warnings = 1
-
 vim.opt.viminfo = "'100,<9999,s100"

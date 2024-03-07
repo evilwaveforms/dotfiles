@@ -50,7 +50,6 @@ vim.keymap.set("x", "<Leader>di", "<Plug>VimspectorBalloonEval")
 
 vim.keymap.set('n', '<leader>gg', function()
     if vim.bo.filetype == 'fugitiveblame' then
-        -- return vim.api.nvim_feedkeys('gq', 'n', true)
         vim.cmd('q')
     else
         vim.cmd('Git blame')
