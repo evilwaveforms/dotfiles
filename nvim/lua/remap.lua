@@ -47,3 +47,16 @@ vim.keymap.set("n", "<leader>aw", "<Plug>VimspectorAddWatch")
 vim.keymap.set("n", "<leader>ev", "<Plug>VimspectorEvaluate")
 vim.keymap.set("n", "<Leader>di", "<Plug>VimspectorBalloonEval")
 vim.keymap.set("x", "<Leader>di", "<Plug>VimspectorBalloonEval")
+
+vim.keymap.set('n', '<leader>gg', function()
+    if vim.bo.filetype == 'fugitiveblame' then
+        -- return vim.api.nvim_feedkeys('gq', 'n', true)
+        vim.cmd('q')
+    else
+        vim.cmd('Git blame')
+    end
+end, {noremap = true, silent = true})
+
+vim.api.nvim_set_keymap("n", "<leader>h", [[:echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>]], { noremap = true })
