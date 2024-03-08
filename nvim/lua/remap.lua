@@ -6,20 +6,20 @@ vim.keymap.set("n", "<leader>nt", "<cmd>Lexplore<CR>")
 vim.keymap.set("n", "<leader>ut",  "<cmd>UndotreeToggle<CR>")
 
 -- fzf
-vim.keymap.set("n", "<C-p>",  "<cmd>Files<CR>")
-vim.keymap.set("n", "<C-g>",  "<cmd>GFiles?<CR>")
+vim.keymap.set("n", "<C-p>",  "<cmd>Files!<CR>")
+vim.keymap.set("n", "<C-g>",  "<cmd>GFiles!?<CR>")
 vim.keymap.set("n", "<C-f>",  "<cmd>Rg!<CR>")
 
 vim.keymap.set("n", "<leader>b",  "<cmd>Buffer!<CR>")
 vim.keymap.set("n", "<leader>g",  "<cmd>BCommits<CR>")
-vim.keymap.set("n", "<leader>gg",  "<cmd>GFiles?<CR>")
 vim.keymap.set("n", "<leader>l",  "<cmd>Lines<CR>")
 
 -- fugitive
 vim.keymap.set("n", "<leader>gs", "<cmd>G<CR>")
-vim.keymap.set("n", "<leader>gf", "<cmd>diffget //2<CR>")
-vim.keymap.set("n", "<leader>gj", "<cmd>diffget //3<CR>")
-vim.keymap.set("n", "<leader>GB",  "<cmd>GBrowse<CR>")
+-- vim.keymap.set("n", "<leader>gf", "<cmd>diffget //2<CR>")
+-- vim.keymap.set("n", "<leader>gj", "<cmd>diffget //3<CR>")
+vim.keymap.set("n", "<leader>G",  "<cmd>GBrowse<CR>")
+vim.keymap.set('v', '<leader>G', ':GBrowse<CR>', {silent = true})
 vim.keymap.set("n", "<leader>gc",  "<cmd>GBranches<CR>")
 
 -- vim-test
