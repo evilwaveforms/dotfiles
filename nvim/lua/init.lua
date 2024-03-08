@@ -12,6 +12,7 @@ end
 vim.opt.rtp:prepend(lazypath)
 require("lazy").setup("plugins", opt)
 require("remap")
+require('fzf').setup()
 
 local lsp_zero = require('lsp-zero')
 

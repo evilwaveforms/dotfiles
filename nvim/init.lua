@@ -12,8 +12,6 @@ vim.opt.background = "dark"
 vim.opt.termguicolors = true
 vim.cmd([[colorscheme system-shock]])
 
-vim.g.fzf_preview_window = { "right,50%,<70(up,40%)", "ctrl-/" }
-
 -- vim.opt.colorcolumn = "81"
 -- vim.cmd([[call matchadd('ColorColumn', '\%81v', 100)]])
 
