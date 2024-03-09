@@ -1,6 +1,6 @@
 # don't put duplicate lines or lines starting with space in the history.
 HISTCONTROL=ignoreboth
-export EDITOR=vim
+export EDITOR=nvim
 
 # history
 HISTSIZE=1000
@@ -45,3 +45,4 @@ fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 source /usr/share/doc/fzf/examples/key-bindings.bash
+source ~/dotfiles/scripts/gd.sh
