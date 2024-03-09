@@ -14,7 +14,7 @@ local function vim_grep(args, bang)
 end
 
 function M.setup()
-  vim.g.fzf_preview_window = { "right,45%,<70(up,40%)", "ctrl-/" }
+  vim.g.fzf_preview_window = { "right,50%,<70(up,40%)", "ctrl-/" }
   vim.env.FZF_DEFAULT_COMMAND = "rg --files --hidden -g '!{.git,build,node_modules,LC_MESSAGES}' "
   vim.api.nvim_create_user_command('Rg', function(c)
     vim_grep(c.args, c.bang)
