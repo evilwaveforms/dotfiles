@@ -10,7 +10,7 @@ gd() {
 
   pushd "$git_root" > /dev/null
 
-  local file=$(git diff "$@" --name-only | fzf -m --ansi --preview 'git diff --color=always {} | less -R' --preview-window=up:70%)
+  local file=$(git diff "$@" --name-only | fzf -m --ansi --preview 'git diff --color=always {} | delta' --preview-window=up:70%)
   if [ -z "$file" ]; then
     popd > /dev/null
     return 1

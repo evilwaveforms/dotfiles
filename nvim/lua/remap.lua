@@ -1,5 +1,7 @@
 vim.g.mapleader = " "
 
+
+vim.keymap.set("n", "<leader>\\", "<cmd>syntax<CR>")
 vim.keymap.set("n", "<leader><space>", "<cmd>nohlsearch<CR>")
 
 vim.keymap.set("n", "<leader>nt", "<cmd>Lexplore<CR>")
@@ -35,6 +37,8 @@ vim.keymap.set("n", "[q", "<cmd>cprev<CR>")
 vim.keymap.set("n", "]q", "<cmd>cnext<CR>")
 vim.keymap.set("n", "[b", "<cmd>bprev<CR>")
 vim.keymap.set("n", "]b", "<cmd>bnext<CR>")
+vim.keymap.set("n", "[t", "<cmd>tabprevious<CR>")
+vim.keymap.set("n", "]t", "<cmd>tabnext<CR>")
 
 vim.keymap.set("n", "<F9>", "<Plug>VimspectorContinue")
 vim.keymap.set("n", "<F10>", "<Plug>VimspectorStop")
@@ -59,3 +63,18 @@ end, {noremap = true, silent = true})
 vim.api.nvim_set_keymap("n", "<leader>h", [[:echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>]], { noremap = true })
+
+function ToggleSyntax()
+  if vim.g.syntax_on then
+    vim.cmd('syntax off')
+    vim.g.syntax_on = false
+    print("syntax off")
+  else
+    vim.cmd('syntax on')
+    vim.g.syntax_on = true
+    print("syntax on")
+  end
+end
+
+vim.api.nvim_create_user_command('ToggleSyntax', ToggleSyntax, {})
+vim.keymap.set('n', '<leader>\\', ToggleSyntax, { noremap = true, silent = true })
