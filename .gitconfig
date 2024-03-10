@@ -1,0 +1,34 @@
+[user]
+    name = evilwaveforms
+    email = 8681846+evilwaveforms@users.noreply.github.com
+[init]
+	defaultBranch = main
+[core]
+	editor = nvim
+    pager = delta
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    navigate = true
+    ; line-numbers = true
+    ; true-color = always
+    features = corvus
+    ; side-by-side = true
+
+[merge]
+    conflictstyle = diff3
+
+[diff]
+    colorMoved = default
+
+[include]
+    path = ~/themes.gitconfig
+
+[diff]
+    tool = nvimdiff
+
+[merge]
+    tool = nvimdiff
+    conflictstyle = diff3
