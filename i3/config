@@ -149,6 +149,7 @@ exec --no-startup-id ~/.screenlayout/dualmonitor.sh
 exec --no-startup-id setxkbmap -option caps:super
 exec --no-startup-id nm-applet
 exec --no-startup-id feh --bg-fill --randomize ~/wallpapers/*
+exec --no-startup-id flameshot
 
 # class                 border  backgr. text    indicator child_border
 client.focused          #0c0c0c #858585 #000000 #555555   #555555
