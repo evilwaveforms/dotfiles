@@ -36,6 +36,15 @@ alias ip="ip -c"
 alias date="date '+%a %d %b %Y %T %Z (%z)'"
 alias np="mpc current && mpc current | xclip -sel clip"
 
+scripts_dir=~/dotfiles/scripts
+if [ -d "$scripts_dir" ]; then
+  for file in "$scripts_dir"/*.sh; do
+    if [ -r "$file" ]; then
+      source "$file"
+    fi
+  done
+fi
+
 # enable programmable completion features (you don't need to enable
 # this, if it's already enabled in /etc/bash.bashrc and /etc/profile
 # sources /etc/bash.bashrc).
@@ -45,4 +54,3 @@ fi
 
 [ -f ~/.fzf.bash ] && source ~/.fzf.bash
 source /usr/share/doc/fzf/examples/key-bindings.bash
-source ~/dotfiles/scripts/gd.sh

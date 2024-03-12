@@ -1,5 +1,4 @@
 #!/bin/bash
-
 # Pipe `git diff` output into fzf, show preview for changes.
 # Jump to first line on diff on enter.
 gd() {
