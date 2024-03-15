@@ -64,7 +64,7 @@ vim.api.nvim_set_keymap("n", "<leader>h", [[:echo "hi<" . synIDattr(synID(line("
 \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
 \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>]], { noremap = true })
 
-function ToggleSyntax()
+vim.keymap.set('n', '<leader>\\', function()
   if vim.g.syntax_on then
     vim.cmd('syntax off')
     vim.g.syntax_on = false
@@ -74,7 +74,4 @@ function ToggleSyntax()
     vim.g.syntax_on = true
     print("syntax on")
   end
-end
-
-vim.api.nvim_create_user_command('ToggleSyntax', ToggleSyntax, {})
-vim.keymap.set('n', '<leader>\\', ToggleSyntax, { noremap = true, silent = true })
+end, { noremap = true, silent = true })
