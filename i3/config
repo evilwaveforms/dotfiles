@@ -20,7 +20,8 @@ set $mod Mod4
 
 # font pango: Monospace 12
 # font pango: DinaRemasterII 16
-font pango: Overpass Mono 15
+# font pango: Overpass Mono 15
+font pango: Berkeley Mono 15
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
