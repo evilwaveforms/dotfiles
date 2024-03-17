@@ -52,6 +52,19 @@ local cmp = require('cmp')
 local cmp_action = require('lsp-zero').cmp_action()
 local cmp_format = lsp_zero.cmp_format()
 
+local function border(hl_name)
+  return {
+    { "┌", hl_name },
+    { "─", hl_name },
+    { "┐", hl_name },
+    { "│", hl_name },
+    { "┘", hl_name },
+    { "─", hl_name },
+    { "└", hl_name },
+    { "│", hl_name },
+  }
+end
+
 cmp.setup({
   formatting = cmp_format,
   mapping = cmp.mapping.preset.insert({
@@ -61,10 +74,17 @@ cmp.setup({
     ['<CR>'] = cmp.mapping.confirm({select = false}),
     ['<Tab>'] = cmp_action.tab_complete(),
     ['<S-Tab>'] = cmp_action.select_prev_or_fallback(),
+    ['<C-e>'] = cmp.mapping.abort(),
   }),
   window = {
-    completion = cmp.config.window.bordered(),
-    documentation = cmp.config.window.bordered(),
+    completion = {
+      border = border("CmpMenuBorder"),
+      -- winhighlight = "Normal:CmpMenu,CursorLine:CmpMenuSel,Search:None",
+    },
+    documentation = {
+      border = border("CmpMenuBorder"),
+      -- winhighlight = "Normal:CmpDoc",
+    },
   }
 })
 
@@ -75,7 +95,7 @@ vim.diagnostic.config({
     underline = true,
     severity_sort = false,
     float = {
-        border = 'rounded',
+        -- border = 'rounded',
         source = 'always',
         header = '',
         prefix = '',
@@ -186,3 +206,6 @@ vim.g.go_highlight_build_constraints = 1
 vim.g.go_highlight_diagnostic_errors = 1
 vim.g.go_highlight_diagnostic_warnings = 1
 vim.opt.viminfo = "'100,<9999,s100"
+
+vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = border("CmpMenuBorder") })
+vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border("CmpMenuBorder") })
