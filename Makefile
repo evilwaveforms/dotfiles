@@ -15,3 +15,7 @@ install:
 .PHONY: calibre
 calibre:
 	sudo -v && wget -nv -O- https://download.calibre-ebook.com/linux-installer.sh | sudo sh /dev/stdin
+
+.PHONY: rustup
+rustup:
+	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
