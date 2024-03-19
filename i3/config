@@ -147,7 +147,7 @@ bindsym $mod+r mode "resize"
 # startup
 exec --no-startup-id redshift
 exec --no-startup-id ~/.screenlayout/dualmonitor.sh
-exec --no-startup-id setxkbmap -option caps:super
+exec --no-startup-id setxkbmap -option caps:escape
 exec --no-startup-id nm-applet
 exec --no-startup-id feh --bg-fill --randomize ~/wallpapers/*
 exec --no-startup-id flameshot
