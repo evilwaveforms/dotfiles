@@ -35,4 +35,53 @@ return {
     -- Lazy loading:
     -- Load on specific commands
     {"tpope/vim-dispatch", lazy = true, cmd = {"Dispatch", "Make", "Focus", "Start"}},
+
+    {
+        "nvim-treesitter/nvim-treesitter",
+        build = ":TSUpdate",
+        config = function ()
+            local configs = require("nvim-treesitter.configs")
+
+            configs.setup({
+                ensure_installed = { "c", "lua", "vim", "vimdoc", "query", "javascript", "html", "python", "rust", "go",},
+                sync_install = false,
+                highlight = { enable = false },
+                indent = { enable = true },
+                incremental_selection = {
+                    enable = true,
+                    keymaps = {
+                        init_selection = "<C-space>",
+                        node_incremental = "<C-space>",
+                        scope_incremental = false,
+                        node_decremental = "<bs>",
+                    },
+                },
+                textobjects = {
+                    select = {
+                        enable = true,
+                        -- Automatically jump forward to textobj, similar to targets.vim
+                        lookahead = true,
+                        keymaps = {
+                            -- You can use the capture groups defined in textobjects.scm
+                            ["af"] = { query = "@function.outer", desc = "Select outer part of a method/function definition" },
+                            ["if"] = { query = "@function.inner", desc = "Select inner part of a method/function definition" },
+                            -- ["ac"] = { query = "@class.outer", desc = "Select outer part of a class" },
+                            -- ["ic"] = { query = "@class.inner", desc = "Select inner part of a class" },
+                        },
+                    },
+                    swap = {
+                        enable = true,
+                        swap_next = {["]a"] = "@parameter.inner",},
+                        swap_previous = {["[a"] = "@parameter.inner",},
+                    },
+                }
+            })
+        end
+    },
+    {
+        "nvim-treesitter/nvim-treesitter-textobjects",
+        dependencies = {
+            "nvim-treesitter/nvim-treesitter",
+        },
+    },
 }
