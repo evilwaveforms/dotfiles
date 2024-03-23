@@ -2,6 +2,7 @@
 
 return {
     "evilwaveforms/system-shock.vim",
+    "evilwaveforms/cybernetics-vim",
     {
         "junegunn/fzf.vim",
         dependencies = {"junegunn/fzf", build = ":call fzf#install()"}

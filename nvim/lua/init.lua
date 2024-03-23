@@ -118,7 +118,7 @@ vim.opt.redrawtime = 10000
 
 vim.opt.background = "dark"
 vim.opt.termguicolors = true
-vim.cmd([[colorscheme system-shock]])
+vim.cmd([[colorscheme cybernetics]])
 
 -- vim.opt.listchars:append("tab:\uBB\uBB,trail:\uB7,nbsp:~")
 -- vim.opt.list = true
