@@ -60,9 +60,17 @@ vim.keymap.set('n', '<leader>gg', function()
     end
 end, {noremap = true, silent = true})
 
-vim.api.nvim_set_keymap("n", "<leader>h", [[:echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>]], { noremap = true })
+vim.keymap.set("n", "<leader>h", function()
+    local buf = vim.api.nvim_get_current_buf()
+    local highlighter = require "vim.treesitter.highlighter"
+    if highlighter.active[buf] then
+        vim.cmd("Inspect")
+    else
+        vim.cmd([[:echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+        \ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+        \ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"]])
+    end
+end, { noremap = true })
 
 vim.keymap.set('n', '<leader>\\', function()
   if vim.g.syntax_on then
