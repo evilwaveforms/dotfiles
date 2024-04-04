@@ -47,21 +47,20 @@ end
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-    ensure_installed = { "basedpyright", "ruff_lsp", "rust_analyzer" },
+    ensure_installed = { "pyright", "ruff_lsp", "rust_analyzer" },
     handlers = {
         lsp_zero.default_setup,
         lua_ls = function()
             local lua_opts = lsp_zero.nvim_lua_ls()
             require('lspconfig').lua_ls.setup(lua_opts)
         end,
-        basedpyright = function()
+        pyright = function()
             local capabilities = require('cmp_nvim_lsp').default_capabilities()
-            require('lspconfig').basedpyright.setup({
+            require('lspconfig').pyright.setup({
                 capabilities = capabilities,
                 on_attach = on_attach,
                 settings = {
-                    basedpyright = {
-                        typeCheckingMode = "standard",
+                    pyright = {
                         disableOrganizeImports = true,
                     },
                     python = {
