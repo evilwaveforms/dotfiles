@@ -60,20 +60,23 @@ require('mason-lspconfig').setup({
                 capabilities = capabilities,
                 on_attach = on_attach,
                 settings = {
-                    pyright = {
-                        disableOrganizeImports = true,
-                    },
-                    python = {
-                        analysis = {
-                            ignore = { '*' },
-                        }
-                    },
+                    pyright = { disableOrganizeImports = true, },
+                    python = { analysis = { ignore = { '*' } }, },
                 },
             })
         end,
         ruff_lsp = function()
             require("lspconfig").ruff_lsp.setup({
                 on_attach = on_attach,
+                init_options = {
+                    settings = {
+                        lint = { args = { "--line-length=91" } },
+                        format = { args = { "--line-length=91" } },
+                        -- args = {
+                        --     "--ignore=xxx",
+                        -- }
+                    },
+                }
             })
         end,
     }

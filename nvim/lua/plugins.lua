@@ -50,7 +50,7 @@ return {
                     "javascript", "html",
                     "css", "python",
                     "rust", "go",
-                    "markdown", "latex",
+                    "markdown",
                     "bash", "diff", "gitcommit",
                     "git_config", "git_rebase",
                     "gitattributes", "htmldjango",
