@@ -22,7 +22,6 @@ vim.keymap.set("n", "<leader>gs", "<cmd>G<CR>")
 -- vim.keymap.set("n", "<leader>gj", "<cmd>diffget //3<CR>")
 vim.keymap.set("n", "<leader>G",  "<cmd>GBrowse<CR>")
 vim.keymap.set('v', '<leader>G', ':GBrowse<CR>', {silent = true})
-vim.keymap.set("n", "<leader>gc",  "<cmd>GBranches<CR>")
 
 -- vim-test
 vim.keymap.set("n", "<leader>tt",  "<cmd>TestNearest<CR>")
@@ -39,18 +38,6 @@ vim.keymap.set("n", "[b", "<cmd>bprev<CR>")
 vim.keymap.set("n", "]b", "<cmd>bnext<CR>")
 vim.keymap.set("n", "[t", "<cmd>tabprevious<CR>")
 vim.keymap.set("n", "]t", "<cmd>tabnext<CR>")
-
-vim.keymap.set("n", "<F9>", "<Plug>VimspectorContinue")
-vim.keymap.set("n", "<F10>", "<Plug>VimspectorStop")
-vim.keymap.set("n", "<F11>", "<Plug>VimspectorRestart")
-vim.keymap.set("n", "<F5>", "<Plug>VimspectorStepOver")
-vim.keymap.set("n", "<F6>", "<Plug>VimspectorStepOut")
-vim.keymap.set("n", "<F7>", "<Plug>VimspectorStepInto")
-vim.keymap.set("n", "<leader>pp", "<Plug>VimspectorToggleBreakpoint")
-vim.keymap.set("n", "<leader>aw", "<Plug>VimspectorAddWatch")
-vim.keymap.set("n", "<leader>ev", "<Plug>VimspectorEvaluate")
-vim.keymap.set("n", "<Leader>di", "<Plug>VimspectorBalloonEval")
-vim.keymap.set("x", "<Leader>di", "<Plug>VimspectorBalloonEval")
 
 vim.keymap.set('n', '<leader>gg', function()
     if vim.bo.filetype == 'fugitiveblame' then

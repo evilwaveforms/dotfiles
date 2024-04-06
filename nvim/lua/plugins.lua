@@ -12,18 +12,30 @@ return {
     "tpope/vim-rhubarb",
     "shumphrey/fugitive-gitlab.vim",
     "rhysd/git-messenger.vim",
-    "stsewd/fzf-checkout.vim",
 
     {"fatih/vim-go", build = ":call GoUpdateBinaries()" },
     "rust-lang/rust.vim",
-
-    "vim-test/vim-test",
     "mbbill/undotree",
-    "puremourning/vimspector",
+    {"vim-test/vim-test", lazy = true, cmd = {"TestNearest", "TestFile", "TestLast", "TestVisit", }},
+    {
+        "puremourning/vimspector",
+        keys = {
+            {"<F9>", "<Plug>VimspectorContinue"},
+            {"<F10>", "<Plug>VimspectorStop"},
+            {"<F11>", "<Plug>VimspectorRestart"},
+            {"<F5>", "<Plug>VimspectorStepOver"},
+            {"<F6>", "<Plug>VimspectorStepOut"},
+            {"<F7>", "<Plug>VimspectorStepInto"},
+            {"<leader>pp", "<Plug>VimspectorToggleBreakpoint"},
+            {"<leader>aw", "<Plug>VimspectorAddWatch"},
+            {"<leader>ev", "<Plug>VimspectorEvaluate"},
+            -- {"<leader>di", "<Plug>VimspectorBalloonEval"},
+            -- {"<leader>di", "<Plug>VimspectorBalloonEval", mode = "x"},
+        },
+    },
 
+    -- LSP
     {"VonHeikemen/lsp-zero.nvim", branch = "v3.x"},
-
-    -- LSP Support
     {"neovim/nvim-lspconfig"},
     {"williamboman/mason.nvim"},
     {"williamboman/mason-lspconfig.nvim"},
@@ -33,10 +45,7 @@ return {
     {"hrsh7th/cmp-nvim-lsp"},
     {"L3MON4D3/LuaSnip"},
 
-    -- Lazy loading:
-    -- Load on specific commands
     {"tpope/vim-dispatch", lazy = true, cmd = {"Dispatch", "Make", "Focus", "Start"}},
-
     {
         "nvim-treesitter/nvim-treesitter",
         build = ":TSUpdate",

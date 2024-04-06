@@ -21,6 +21,7 @@ Plug 'tpope/vim-rhubarb'
 Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'rust-lang/rust.vim'
 Plug 'evilwaveforms/system-shock.vim'
+Plug 'evilwaveforms/cybernetics-vim'
 call plug#end()
 
 syntax on
@@ -30,7 +31,7 @@ let mapleader = " "
 
 set background=dark
 set termguicolors
-colorscheme system-shock
+colorscheme cybernetics
 
 if &term =~ '256color'
     " Disable Background Color Erase (BCE) so that color schemes
