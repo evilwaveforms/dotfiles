@@ -37,6 +37,7 @@ alias grep="grep --color"
 alias ip="ip -c"
 alias date="date '+%a %d %b %Y %T %Z (%z)'"
 alias np="mpc current && mpc current | xclip -sel clip"
+alias fehbg="feh --bg-fill --randomize ~/dotfiles/wallpapers/*"
 
 scripts_dir=~/dotfiles/scripts
 if [ -d "$scripts_dir" ]; then
