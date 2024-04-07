@@ -59,24 +59,26 @@ vim.keymap.set("n", "<leader>h", function()
     end
 end, { noremap = true })
 
--- vim.keymap.set('n', '<leader>\\', function()
---   if vim.g.syntax_on then
---     vim.cmd('syntax off')
---     vim.g.syntax_on = false
---     print("syntax off")
---   else
---     vim.cmd('syntax on')
---     vim.g.syntax_on = true
---     print("syntax on")
---   end
--- end, { noremap = true, silent = true })
+vim.keymap.set('n', '<leader>|', function()
+  if vim.g.syntax_on then
+    vim.cmd('syntax off')
+    vim.g.syntax_on = false
+    print("syntax off")
+  else
+    vim.cmd('syntax on')
+    vim.g.syntax_on = true
+    print("syntax on")
+  end
+end, { noremap = true, silent = true })
 
 vim.keymap.set('n', '<leader>\\', function()
   if vim.wo.number or vim.wo.relativenumber then
     vim.wo.number = false
     vim.wo.rnu = false
+    vim.opt.laststatus = 0
   else
     vim.wo.number = true
     vim.wo.rnu = true
+    vim.opt.laststatus = 2
   end
 end, { noremap = true, silent = true })
