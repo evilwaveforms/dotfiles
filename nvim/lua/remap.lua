@@ -76,9 +76,11 @@ vim.keymap.set('n', '<leader>\\', function()
     vim.wo.number = false
     vim.wo.rnu = false
     vim.opt.laststatus = 0
+    vim.opt.ruler = false
   else
     vim.wo.number = true
     vim.wo.rnu = true
     vim.opt.laststatus = 2
+    vim.opt.ruler = true
   end
 end, { noremap = true, silent = true })
