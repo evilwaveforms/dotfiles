@@ -61,7 +61,12 @@ require('mason-lspconfig').setup({
                 on_attach = on_attach,
                 settings = {
                     pyright = { disableOrganizeImports = true, },
-                    python = { analysis = { ignore = { '*' } }, },
+                    python = {
+                        analysis = {
+                            ignore = { '*' },
+                            -- typeCheckingMode = "strict",
+                        },
+                    },
                 },
             })
         end,
