@@ -161,16 +161,13 @@ vim.diagnostic.config({
     severity_sort = false,
     float = {
         -- border = 'rounded',
-        source = 'always',
         header = '',
         prefix = '',
+        focusable = false,
+        close_events = { "BufLeave", "CursorMoved", "InsertEnter", "FocusLost" },
+        source = false
     },
 })
-
-vim.cmd([[
-set signcolumn=yes
-autocmd CursorHold * lua vim.diagnostic.open_float(nil, { focusable = false })
-]])
 
 vim.opt.wildmode = "longest,list,full"
 vim.opt.wildmenu = true
