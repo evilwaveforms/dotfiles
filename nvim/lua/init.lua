@@ -1,6 +1,6 @@
 vim.g.mapleader = " "
-vim.cmd('syntax off')
-vim.g.syntax_on = false
+-- vim.cmd('syntax off')
+vim.g.syntax_on = true
 
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
