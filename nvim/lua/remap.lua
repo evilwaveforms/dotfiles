@@ -13,7 +13,7 @@ vim.keymap.set("n", "<C-g>",  "<cmd>GFiles!?<CR>")
 vim.keymap.set("n", "<C-f>",  "<cmd>Rg!<CR>")
 
 vim.keymap.set("n", "<leader>b",  "<cmd>Buffer!<CR>")
-vim.keymap.set("n", "<leader>g",  "<cmd>BCommits<CR>")
+vim.keymap.set("n", "<leader>gl",  "<cmd>BCommits<CR>")
 vim.keymap.set("n", "<leader>l",  "<cmd>Lines<CR>")
 
 -- fugitive
