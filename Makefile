@@ -1,5 +1,5 @@
 PACKAGES := curl wget flameshot mpd ncmpcpp keepassxc \
-			feh redshift thunar
+			feh redshift thunar i3 i3blocks tmux
 
 # Default target
 .PHONY: all
