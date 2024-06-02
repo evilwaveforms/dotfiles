@@ -1,7 +1,7 @@
 PACKAGES := curl wget flameshot mpd ncmpcpp keepassxc \
 			feh redshift thunar i3 i3blocks tmux git \
 			ninja-build gettext cmake unzip build-essential \
-			ccache apt-listbugs ripgrep
+			ccache apt-listbugs ripgrep libx11-dev
 
 # Default target
 .PHONY: all
@@ -35,3 +35,12 @@ neovim: ## clone and build neovim
 		cd $(HOME) && git clone https://github.com/neovim/neovim; \
 	fi
 	cd $(HOME)/neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo && sudo make install
+
+.PHONY: st
+st: ## clone and build st
+	@if [ -d "$(HOME)/st" ]; then \
+		cd $(HOME)/st && git pull; \
+	else \
+		cd $(HOME) && git clone git@github.com:evilwaveforms/st.git; \
+	fi
+	cd $(HOME)/st && sudo make clean install
