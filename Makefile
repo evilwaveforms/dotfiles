@@ -1,6 +1,7 @@
 PACKAGES := curl wget flameshot mpd ncmpcpp keepassxc \
-			feh redshift thunar i3 i3blocks tmux \
-			ninja-build gettext cmake unzip build-essential
+			feh redshift thunar i3 i3blocks tmux git \
+			ninja-build gettext cmake unzip build-essential \
+			ccache apt-listbugs ripgrep
 
 # Default target
 .PHONY: all
@@ -25,3 +26,12 @@ calibre: ## download and install calibre; https://calibre-ebook.com/download_lin
 .PHONY: rustup
 rustup: ## download and install rustup; https://sh.rustup.rs 
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+
+.PHONY: neovim
+neovim: ## clone and build neovim
+	@if [ -d "$(HOME)/neovim" ]; then \
+		cd $(HOME)/neovim && git pull && make distclean; \
+	else \
+		cd $(HOME) && git clone https://github.com/neovim/neovim; \
+	fi
+	cd $(HOME)/neovim && make CMAKE_BUILD_TYPE=RelWithDebInfo && sudo make install
