@@ -1,7 +1,7 @@
 PACKAGES := curl wget flameshot mpd ncmpcpp keepassxc \
 			feh redshift thunar i3 i3blocks tmux git \
 			ninja-build gettext cmake unzip build-essential \
-			ccache apt-listbugs ripgrep libx11-dev
+			ccache apt-listbugs ripgrep libx11-dev xclip
 
 # Default target
 .PHONY: all
@@ -13,6 +13,14 @@ help: ## prints help for targets with comments
 	@echo "Packages to be installed by the 'install' target:"
 	@echo "$(PACKAGES)" | xargs -n 20 | awk '{printf " %s\n", $$0}'
 
+.PHONY: sshkey
+sshkey: ## create a new ssh key
+	read -p "Enter filename for the SSH key: " filename && \
+	read -p "Enter label for the SSH key: " label && \
+	ssh-keygen -t ed25519 -f ~/.ssh/$$filename -C "$$label" && \
+	eval "$(ssh-agent -s)" && \
+	ssh-add ~/.ssh/$$filename && \
+	cat ~/.ssh/$$filename.pub | xclip -selection clipboard
 
 .PHONY: install
 install: ## install packages
