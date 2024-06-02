@@ -28,16 +28,9 @@ export TIME_STYLE="+%d-%m-%Y %H:%M:%S"
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
-
-alias rm="rm -i"
-alias mv="mv -i"
-alias untar="tar xvzf"
-alias ls="ls --color=auto"
-alias grep="grep --color"
-alias ip="ip -c"
-alias date="date '+%a %d %b %Y %T %Z (%z)'"
-alias np="mpc current && mpc current | xclip -sel clip"
-alias fehbg="feh --bg-fill --randomize ~/dotfiles/wallpapers/*"
+if [ -f ~/dotfiles/.aliases ]; then
+    . ~/dotfiles/.aliases
+fi
 
 scripts_dir=~/dotfiles/scripts
 if [ -d "$scripts_dir" ]; then
