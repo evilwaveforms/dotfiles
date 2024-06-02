@@ -19,7 +19,21 @@ zstyle ':completion:*:options' description 'yes'
 zstyle ':completion:*:options' auto-description '%d'
 zstyle ':completion:*:descriptions' format $'%{\e[0;31m%}%d%{\e[0m%}'
 
-PROMPT='%F{8}%n@%m:%F{172}%~ # %f'
+# PROMPT='%F{8}%n@%m:%F{172}%~ # %f'
+
+autoload -Uz vcs_info
+zstyle ':vcs_info:*' enable git
+zstyle ':vcs_info:git:*' formats '[%b]'
+zstyle ':vcs_info:git:*' actionformats '[%i|%a]'
+zstyle ':vcs_info:git:*' check-for-changes true
+
+precmd_vcs_info() { vcs_info }
+precmd_functions+=( precmd_vcs_info )
+setopt prompt_subst
+PROMPT='%F{purple}%~%f '
+PROMPT+='%F{white}${vcs_info_msg_0_}'
+PROMPT+='%f'$'\n'
+PROMPT+='%F{red}ᛣ%f '
 
 export PATH=$PATH:$HOME/.npm-global/bin
 export PATH=$PATH:/usr/local/go/bin
