@@ -48,5 +48,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-[ -f ~/.fzf.bash ] && source ~/.fzf.bash
 source /usr/share/doc/fzf/examples/key-bindings.bash
+
+[ -f ~/.fzf.bash ] && source ~/.fzf.bash

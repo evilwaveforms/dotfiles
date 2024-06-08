@@ -52,3 +52,12 @@ st: ## clone and build st
 		cd $(HOME) && git clone git@github.com:evilwaveforms/st.git; \
 	fi
 	cd $(HOME)/st && sudo make clean install
+
+.PHONY: fzf
+fzf: ## clone and build fzf
+	@if [ -d "$(HOME)/.fzf" ]; then \
+		cd $(HOME)/.fzf && git pull; \
+	else \
+		git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf; \
+	fi
+	~/.fzf/install

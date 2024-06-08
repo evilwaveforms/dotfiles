@@ -40,7 +40,6 @@ export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/go/bin
 export PATH=$PATH:$HOME/.cargo/bin
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
 scripts_dir=~/dotfiles/scripts
 if [ -d "$scripts_dir" ]; then
@@ -61,3 +60,5 @@ fi
 autoload edit-command-line
 zle -N edit-command-line
 bindkey '^Xe' edit-command-line
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
