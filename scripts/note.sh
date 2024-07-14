@@ -14,3 +14,11 @@ note() {
     fi
     $EDITOR "$FILE_PATH"
 }
+
+notes() {
+    NOTES_DIR="$HOME/notes"
+    FILE=$(rg --files "$NOTES_DIR" | fzf --preview 'cat {}' --preview-window=right:60%)
+    if [[ -n "$FILE" ]]; then
+        $EDITOR "$FILE"
+    fi
+}
