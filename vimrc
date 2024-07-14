@@ -85,6 +85,7 @@ set modelines=0
 " Automatically wrap text that extends beyond the screen length.
 set wrap
 autocmd FileType gitcommit setlocal textwidth=72
+autocmd FileType markdown setlocal textwidth=100
 
 nnoremap <F2> :set invpaste paste?<CR>
 imap <F2> <C-O>:set invpaste paste?<CR>

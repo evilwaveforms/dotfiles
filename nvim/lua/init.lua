@@ -202,6 +202,7 @@ vim.opt.autoindent = true
 
 vim.cmd([[autocmd Filetype html,htmldjango,javascript,vue setlocal ts=2 sw=2 expandtab]])
 vim.cmd([[autocmd FileType gitcommit setlocal textwidth=72]])
+vim.cmd([[autocmd FileType markdown setlocal textwidth=100]])
 vim.cmd([[runtime macros/matchit.vim]])
 vim.g.undotree_SetFocusWhenToggle = 1
 
