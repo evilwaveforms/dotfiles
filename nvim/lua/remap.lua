@@ -21,7 +21,8 @@ vim.keymap.set("n", "<leader>gs", "<cmd>G<CR>")
 -- vim.keymap.set("n", "<leader>gf", "<cmd>diffget //2<CR>")
 -- vim.keymap.set("n", "<leader>gj", "<cmd>diffget //3<CR>")
 vim.keymap.set("n", "<leader>G",  "<cmd>GBrowse<CR>")
-vim.keymap.set('v', '<leader>G', ':GBrowse<CR>', {silent = true})
+vim.keymap.set("v", "<leader>G", ":GBrowse<CR>", {silent = true})
+-- vim.keymap.set("n", "<leader>gc", ":Gclog %<CR>")
 
 -- vim-test
 vim.keymap.set("n", "<leader>tt",  "<cmd>TestNearest<CR>")
@@ -82,5 +83,19 @@ vim.keymap.set('n', '<leader>\\', function()
     vim.wo.rnu = true
     vim.opt.laststatus = 2
     vim.opt.ruler = true
+  end
+end, { noremap = true, silent = true })
+
+vim.g.theme_mode = 'dark'
+
+vim.keymap.set('n', '<leader>th', function()
+  if vim.g.theme_mode == 'dark' then
+    vim.g.theme_mode = 'light'
+    vim.cmd('set background=light')
+    vim.cmd('colorscheme cybernetics-light')
+  else
+    vim.g.theme_mode = 'dark'
+    vim.cmd('set background=dark')
+    vim.cmd('colorscheme cybernetics')
   end
 end, { noremap = true, silent = true })
