@@ -33,7 +33,8 @@ setopt prompt_subst
 PROMPT='%F{purple}%~%f '
 PROMPT+='%F{white}${vcs_info_msg_0_}'
 PROMPT+='%f'$'\n'
-PROMPT+='%F{red}ᛣ%f '
+# PROMPT+='%F{red}ᛣ%f '
+PROMPT+='%F{yellow}λ%f '
 
 export PATH=$PATH:$HOME/.npm-global/bin
 export PATH=$PATH:/usr/local/go/bin
