@@ -36,6 +36,7 @@ PROMPT+='%f'$'\n'
 # PROMPT+='%F{red}ᛣ%f '
 PROMPT+='%F{yellow}λ%f '
 
+export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.npm-global/bin
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/go/bin

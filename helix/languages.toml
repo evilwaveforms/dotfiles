@@ -1,0 +1,13 @@
+[[language]]
+name = "python"
+language-servers = [ "pyright", "ruff" ]
+auto-format = false
+
+[language-server.ruff]
+command = "ruff-lsp"
+
+# [language-server.ruff.config.settings]
+# args = ["--ignore", "E501"]
+
+[language-server.pyright.config.settings]
+args = ["--ignore", "*"]
