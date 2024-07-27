@@ -92,10 +92,22 @@ vim.keymap.set('n', '<leader>th', function()
   if vim.g.theme_mode == 'dark' then
     vim.g.theme_mode = 'light'
     vim.cmd('set background=light')
-    vim.cmd('colorscheme cybernetics-light')
+    vim.cmd('colorscheme cybernetics-hx')
   else
     vim.g.theme_mode = 'dark'
     vim.cmd('set background=dark')
     vim.cmd('colorscheme cybernetics')
   end
 end, { noremap = true, silent = true })
+
+
+function LoadLocal(local_task)
+  vim.b.local_task = local_task
+end
+
+function RunLocal()
+  vim.cmd(vim.b.local_task)
+end
+
+vim.cmd [[command! -nargs=1 LoadLocal call v:lua.LoadLocal(<f-args>)]]
+vim.keymap.set('n', 'gxl', RunLocal, {desc="Buffer Task"})
