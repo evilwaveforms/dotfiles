@@ -40,6 +40,7 @@ export PATH=$PATH:$HOME/.npm-global/bin
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:$HOME/go/bin
 export PATH=$PATH:$HOME/.cargo/bin
+export HELIX_RUNTIME=~/helix/runtime
 
 
 scripts_dir=~/dotfiles/scripts

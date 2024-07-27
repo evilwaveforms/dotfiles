@@ -1,0 +1,6 @@
+[editor]
+line-number = "relative"
+true-color=true
+
+[editor.file-picker]
+hidden = false
