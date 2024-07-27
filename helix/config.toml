@@ -1,3 +1,5 @@
+theme = "default-min"
+
 [editor]
 line-number = "relative"
 true-color=true
