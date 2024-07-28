@@ -3,6 +3,20 @@ theme = "default-min"
 [editor]
 line-number = "relative"
 true-color=true
+soft-wrap.enable=true
 
 [editor.file-picker]
 hidden = false
+
+[editor.whitespace.render]
+space = "none"
+tab = "all"
+nbsp = "none"
+nnbsp = "none"
+newline = "none"
+
+# create a new minor mode bound to `+`
+[keys.normal."+"]
+m = ":run-shell-command make"
+c = ":run-shell-command cargo build"
+t = ":run-shell-command cargo test"

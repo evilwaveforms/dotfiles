@@ -1,7 +1,15 @@
 [[language]]
+name="rust"
+formatter = { command = "rustfmt" }
+
+[[language]]
 name = "python"
 language-servers = [ "pyright", "ruff" ]
 auto-format = false
+
+[[language]]
+name = "markdown"
+text-width = 100
 
 [language-server.ruff]
 command = "ruff-lsp"
