@@ -15,8 +15,10 @@ nbsp = "none"
 nnbsp = "none"
 newline = "none"
 
-# create a new minor mode bound to `+`
-[keys.normal."+"]
-m = ":run-shell-command make"
-c = ":run-shell-command cargo build"
+[keys.normal."space"]
+# m = ":run-shell-command make"
+# c = ":run-shell-command cargo build"
 t = ":run-shell-command cargo test"
+
+[keys.normal]
+X = ["extend_line_up", "extend_to_line_bounds"]
