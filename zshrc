@@ -1,4 +1,5 @@
 export EDITOR=nvim
+export RUST_BACKTRACE=1
 
 HISTFILE=~/.histfile
 HISTSIZE=1000

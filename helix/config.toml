@@ -18,7 +18,8 @@ newline = "none"
 [keys.normal."space"]
 # m = ":run-shell-command make"
 # c = ":run-shell-command cargo build"
-t = ":run-shell-command cargo test"
+# t = ":run-shell-command cargo test"
+t = ":sh cargo test &"
 
 [keys.normal]
 X = ["extend_line_up", "extend_to_line_bounds"]

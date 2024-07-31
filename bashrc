@@ -1,6 +1,7 @@
 # don't put duplicate lines or lines starting with space in the history.
 HISTCONTROL=ignoreboth
 export EDITOR=nvim
+export RUST_BACKTRACE=1
 
 # history
 HISTSIZE=1000
