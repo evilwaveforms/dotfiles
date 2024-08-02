@@ -2,8 +2,9 @@ theme = "default-min"
 
 [editor]
 line-number = "relative"
-true-color=true
-soft-wrap.enable=true
+true-color = true
+soft-wrap.enable = true
+auto-format = false
 
 [editor.file-picker]
 hidden = false
