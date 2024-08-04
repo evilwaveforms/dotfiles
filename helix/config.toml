@@ -5,6 +5,7 @@ line-number = "relative"
 true-color = true
 soft-wrap.enable = true
 auto-format = false
+auto-pairs = false
 
 [editor.file-picker]
 hidden = false
@@ -24,3 +25,9 @@ t = ":sh cargo test &"
 
 [keys.normal]
 X = ["extend_line_up", "extend_to_line_bounds"]
+
+[keys.normal."]"]
+g = ["save_selection", "goto_next_change"]
+
+[keys.normal."["]
+g = ["save_selection", "goto_prev_change"]
