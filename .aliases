@@ -1,6 +1,7 @@
 alias rm="rm -i"
 alias mv="mv -i"
-alias untar="tar xvzf"
+alias untargz="tar -xvzf"
+alias untarxz="tar -xJf"
 alias ls="ls --color=auto"
 alias grep="grep --color"
 alias ip="ip -c"
