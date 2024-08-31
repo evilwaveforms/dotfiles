@@ -35,7 +35,7 @@ PROMPT='%F{purple}%~%f '
 PROMPT+='%F{white}${vcs_info_msg_0_}'
 PROMPT+='%f'$'\n'
 # PROMPT+='%F{red}ᛣ%f '
-PROMPT+='%F{yellow}λ%f '
+PROMPT+='%F{white}λ%f '
 
 export PATH=$PATH:$HOME/.local/bin
 export PATH=$PATH:$HOME/.npm-global/bin
