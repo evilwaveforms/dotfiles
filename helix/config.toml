@@ -25,6 +25,7 @@ m = ":sh make >/dev/null"
 
 [keys.normal]
 X = ["extend_line_up", "extend_to_line_bounds"]
+0 = ["goto_line_start"]
 
 [keys.normal."]"]
 g = ["save_selection", "goto_next_change"]
