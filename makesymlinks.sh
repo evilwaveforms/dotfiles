@@ -3,7 +3,7 @@
 
 dir=~/dotfiles              # dotfiles directory
 olddir=~/dotfiles_old       # backup directory for old dotfiles
-files="bashrc zshrc vimrc Xresources xinitrc xbindkeysrc compton.conf i3 i3blocks.conf tmux.conf ncmpcpp"
+files="bashrc zshrc vimrc Xresources xinitrc xbindkeysrc compton.conf i3 i3blocks.conf tmux.conf ncmpcpp alacritty.toml"
 cdirs="zathura nvim helix" # ~/.config/x
 
 echo "Creating $olddir for backup of any existing dotfiles in ~"
