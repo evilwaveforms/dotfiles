@@ -45,17 +45,42 @@ local on_attach = function(client, bufnr)
     end
 end
 
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 require('mason').setup({})
 require('mason-lspconfig').setup({
-    ensure_installed = { "pyright", "ruff_lsp", "rust_analyzer" },
+    ensure_installed = { "pyright", "ruff_lsp", "rust_analyzer", "html", "cssls", "tsserver"},
     handlers = {
         lsp_zero.default_setup,
         lua_ls = function()
             local lua_opts = lsp_zero.nvim_lua_ls()
             require('lspconfig').lua_ls.setup(lua_opts)
         end,
+        cssls = function()
+            require('lspconfig').cssls.setup({
+                capabilities = capabilities,
+                filetypes = {"css", "scss", "less", "html"},
+            })
+        end,
+        html = function()
+            require('lspconfig').html.setup({
+                capabilities = capabilities,
+                filetypes = {"html", "htmldjango"},
+                init_options = {
+                    configurationSection = { "html", "css", "javascript" },
+                    embeddedLanguages = {
+                        css = true,
+                        javascript = true
+                    },
+                },
+            })
+        end,
+        tsserver = function()
+            require('lspconfig').tsserver.setup({
+                capabilities = capabilities,
+                filetypes = {"typescript", "typescriptreact", "typescript.tsx", "javascript", "javascriptreact", "javascript.jsx"},
+            })
+        end,
         pyright = function()
-            local capabilities = require('cmp_nvim_lsp').default_capabilities()
             require('lspconfig').pyright.setup({
                 capabilities = capabilities,
                 on_attach = on_attach,
