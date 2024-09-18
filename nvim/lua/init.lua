@@ -48,7 +48,7 @@ end
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 require('mason').setup({})
 require('mason-lspconfig').setup({
-    ensure_installed = { "pyright", "ruff_lsp", "rust_analyzer", "html", "cssls", "tsserver"},
+    ensure_installed = { "pyright", "ruff_lsp", "rust_analyzer", "html", "cssls"},
     handlers = {
         lsp_zero.default_setup,
         lua_ls = function()
@@ -72,12 +72,6 @@ require('mason-lspconfig').setup({
                         javascript = true
                     },
                 },
-            })
-        end,
-        tsserver = function()
-            require('lspconfig').tsserver.setup({
-                capabilities = capabilities,
-                filetypes = {"typescript", "typescriptreact", "typescript.tsx", "javascript", "javascriptreact", "javascript.jsx"},
             })
         end,
         pyright = function()
