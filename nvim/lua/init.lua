@@ -26,6 +26,7 @@ lsp_zero.on_attach(function(client, bufnr)
     -- to learn the available actions
     client.server_capabilities.semanticTokensProvider = nil
     vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end)
+    vim.keymap.set('n', '<leader>gd', '<cmd>vsplit | lua vim.lsp.buf.definition()<CR>', opts)
     vim.keymap.set("n", "<leader>gr", function() vim.lsp.buf.references() end)
     vim.keymap.set("n", "<leader>k", function() vim.lsp.buf.hover() end)
     vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end)
