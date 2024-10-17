@@ -92,7 +92,7 @@ vim.keymap.set('n', '<leader>th', function()
   if vim.g.theme_mode == 'dark' then
     vim.g.theme_mode = 'light'
     vim.cmd('set background=light')
-    vim.cmd('colorscheme cybernetics-hx')
+    vim.cmd('colorscheme cybernetics-light')
   else
     vim.g.theme_mode = 'dark'
     vim.cmd('set background=dark')
