@@ -1,0 +1,125 @@
+attribute = "lilac"
+keyword = "offwhite"
+"keyword.directive" = "offwhite" # -- preprocessor comments (#if in C)
+"keyword.control.conditional" = "white"
+"keyword.control.repeat" = "offwhite"
+"keyword.control.import" = "white"
+namespace = "offwhite"
+punctuation = "offwhite"
+"punctuation.delimiter" = "offwhite"
+operator = "offwhite"
+special = "orange"
+"variable.other.member" = "offwhite"
+variable = "offwhite"
+# variable = "almond" # TODO: metavariables only
+# "variable.parameter" = { fg = "lavender", modifiers = ["underlined"] }
+"variable.parameter" = { fg = "offwhite" }
+"variable.builtin" = "offwhite"
+type = "offwhite"
+"type.builtin" = "white" # TODO: distinguish?
+storage = "offwhite"
+constructor = "offwhite"
+function = "orange"
+"function.macro" = "orange"
+"function.builtin" = "orange"
+tag = "offwhite"
+comment = "darkgrey"
+constant = "grey"
+"constant.builtin" = "grey"
+string = "bgrey"
+"constant.numeric" = "grey"
+"constant.character.escape" = "honey"
+# used for lifetimes
+label = "honey"
+
+"markup.heading" = "white"
+"markup.bold" = { modifiers = ["bold"] }
+"markup.italic" = { modifiers = ["italic"] }
+"markup.strikethrough" = { modifiers = ["crossed_out"] }
+"markup.link.url" = { fg = "silver", modifiers = ["underlined"] }
+"markup.link.text" = "almond"
+"markup.raw" = "offwhite"
+
+"diff.plus" = "#35bf86"
+"diff.minus" = "#f22c86"
+"diff.delta" = "#6f44f0"
+
+# TODO: differentiate doc comment
+# concat (ERROR) @error.syntax and "MISSING ;" selectors for errors
+
+"ui.background" = { bg = "black" }
+"ui.background.separator" = { fg = "comet" }
+"ui.linenr" = { fg = "#444444" }
+"ui.linenr.selected" = { fg = "offwhite" }
+"ui.statusline" = { fg = "offwhite", bg = "black" }
+"ui.statusline.inactive" = { fg = "lavender", bg = "revolver" }
+"ui.popup" = { bg = "black" }
+"ui.window" = { fg = "bossanova" }
+"ui.help" = { bg = "#7958DC", fg = "#171452" }
+"ui.text" = { fg = "offwhite" }
+"ui.text.focus" = { fg = "white" }
+"ui.text.inactive" = "sirocco"
+"ui.virtual" = { fg = "comet" }
+"ui.virtual.ruler" = { bg = "bossanova" }
+"ui.virtual.jump-label" = { fg = "apricot", modifiers = ["bold"] }
+
+"ui.virtual.indent-guide" = { fg = "comet" }
+
+"ui.selection" = { bg = "green" }
+"ui.selection.primary" = { bg = "cgrey", fg = "black" }
+# TODO: namespace ui.cursor as ui.selection.cursor?
+"ui.cursor.select" = { bg = "green" }
+"ui.cursor.insert" = { bg = "white" }
+"ui.cursor.primary.select" = { bg = "green", fg = "black" }
+"ui.cursor.primary.insert" = { bg = "white" }
+"ui.cursor.match" = { fg = "#131314", bg = "#3c3c3c" }
+"ui.cursor" = { bg = "black", fg = "green", modifiers = ["reversed"] }
+"ui.cursorline.primary" = { bg = "bossanova" }
+"ui.highlight" = { bg = "bossanova" }
+"ui.highlight.frameline" = { bg = "#634450" }
+"ui.debug" = { fg = "#634450" }
+"ui.debug.breakpoint" = { fg = "apricot" }
+"ui.menu" = { fg = "lavender", bg = "revolver" }
+"ui.menu.selected" = { fg = "revolver", bg = "white" }
+"ui.menu.scroll" = { fg = "lavender", bg = "comet" }
+
+"diagnostic.hint" = { underline = { color = "silver", style = "curl" } }
+"diagnostic.info" = { underline = { color = "delta", style = "curl" } }
+"diagnostic.warning" = { underline = { color = "lightning", style = "curl" } }
+"diagnostic.error" = { underline = { color = "apricot", style = "curl" } }
+"diagnostic.unnecessary" = { modifiers = ["dim"] }
+"diagnostic.deprecated" = { modifiers = ["crossed_out"] }
+
+warning = "lightning"
+error = "apricot"
+info = "delta"
+hint = "silver"
+
+[palette]
+white = "#ffffff"
+black = "#000000"
+offwhite = "#949494"
+orange = "#BD9800"
+darkgrey = "#444444"
+grey = "#A6A6A6"
+bgrey = "#444444"
+cgrey = "#7B7B7B"
+green = "#3F9834"
+
+lilac = "#dbbfef"
+lavender = "#a4a0e8"
+comet = "#5a5977"
+bossanova = "#452859"
+midnight = "#3b224c"
+revolver = "#281733"
+
+silver = "#cccccc"
+sirocco = "#697C81"
+mint = "#9ff28f"
+almond = "#eccdba"
+chamois = "#E8DCA0"
+honey = "#efba5d"
+
+apricot = "#f47868"
+lightning = "#ffcd1c"
+delta = "#6F44F0"
