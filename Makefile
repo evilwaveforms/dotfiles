@@ -62,3 +62,13 @@ fzf: ## clone and build fzf
 		git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf; \
 	fi
 	~/.fzf/install
+
+.PHONY: helix
+helix: ## clone and build helix
+	@if [ -d "$(HOME)/helix" ]; then \
+		cd $(HOME)/helix && git pull; \
+	else \
+		git clone https://github.com/helix-editor/helix ~/helix; \
+	fi
+	cd ~/helix && cargo install --path helix-term --locked
+
