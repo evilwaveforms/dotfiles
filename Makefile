@@ -35,6 +35,7 @@ calibre: ## download and install calibre; https://calibre-ebook.com/download_lin
 .PHONY: rustup
 rustup: ## download and install rustup; https://sh.rustup.rs 
 	curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+	rustup component add rust-analyzer
 
 .PHONY: neovim
 neovim: ## clone and build neovim
