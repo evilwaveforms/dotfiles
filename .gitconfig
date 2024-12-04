@@ -32,3 +32,9 @@
 [merge]
     tool = nvimdiff
     conflictstyle = diff3
+
+[pretty]
+    custom = "%C(always,yellow)%h%C(always,reset) %C(always,green)%ad%C(always,reset) %C(always,bold blue)%an%C(always,reset) %C(always,red)%d%C(always,reset) %s"
+
+[alias]
+    lg = log --graph --pretty=custom --abbrev-commit --date=format:'%d/%m/%Y %H:%M:%S'
