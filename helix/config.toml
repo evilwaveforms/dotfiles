@@ -20,8 +20,12 @@ newline = "none"
 [keys.normal."space"]
 # c = ":run-shell-command cargo build"
 # t = ":run-shell-command cargo test"
+
+[keys.normal."backspace"]
 t = ":sh cargo test &"
 m = ":sh make >/dev/null"
+c = ":config-open"
+r = ":config-reload"
 
 [keys.normal]
 X = ["extend_line_up", "extend_to_line_bounds"]
