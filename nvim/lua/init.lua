@@ -40,7 +40,7 @@ lsp_zero.on_attach(function(client, bufnr)
 end)
 
 local on_attach = function(client, bufnr)
-    if client.name == 'ruff_lsp' then
+    if client.name == 'ruff' then
         -- Disable hover in favor of Pyright
         client.server_capabilities.hoverProvider = false
     end
@@ -49,7 +49,7 @@ end
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 require('mason').setup({})
 require('mason-lspconfig').setup({
-    ensure_installed = { "pyright", "ruff_lsp", "rust_analyzer", "html", "cssls"},
+    ensure_installed = { "pyright", "ruff", "rust_analyzer", "html", "cssls"},
     handlers = {
         lsp_zero.default_setup,
         lua_ls = function()
@@ -90,8 +90,8 @@ require('mason-lspconfig').setup({
                 },
             })
         end,
-        ruff_lsp = function()
-            require("lspconfig").ruff_lsp.setup({
+        ruff = function()
+            require("lspconfig").ruff.setup({
                 on_attach = on_attach,
                 init_options = {
                     settings = {
