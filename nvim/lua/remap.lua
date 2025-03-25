@@ -9,8 +9,10 @@ vim.keymap.set("n", "<leader>ut",  "<cmd>UndotreeToggle<CR>")
 
 -- fzf
 vim.keymap.set("n", "<C-p>",  "<cmd>Files!<CR>")
+vim.keymap.set("n", "<leader>f",  "<cmd>Files!<CR>")
 vim.keymap.set("n", "<C-g>",  "<cmd>GFiles!?<CR>")
 vim.keymap.set("n", "<C-f>",  "<cmd>Rg!<CR>")
+vim.keymap.set("n", "<leader>?",  "<cmd>Rg!<CR>")
 
 vim.keymap.set("n", "<leader>b",  "<cmd>Buffer!<CR>")
 vim.keymap.set("n", "<leader>gl",  "<cmd>BCommits<CR>")
