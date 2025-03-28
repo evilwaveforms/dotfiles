@@ -13,7 +13,7 @@ return {
     "shumphrey/fugitive-gitlab.vim",
     "rhysd/git-messenger.vim",
 
-    {"fatih/vim-go", build = ":call GoUpdateBinaries()" },
+    -- {"fatih/vim-go", build = ":call GoUpdateBinaries()" },
     "rust-lang/rust.vim",
     "mbbill/undotree",
     {"vim-test/vim-test", lazy = true, cmd = {"TestNearest", "TestFile", "TestLast", "TestVisit", }},
@@ -35,16 +35,34 @@ return {
     },
 
     -- LSP
-    {"VonHeikemen/lsp-zero.nvim", branch = "v3.x"},
     {"neovim/nvim-lspconfig"},
     {"williamboman/mason.nvim"},
     {"williamboman/mason-lspconfig.nvim"},
 
     -- Autocompletion
-    {"hrsh7th/nvim-cmp"},
-    {"hrsh7th/cmp-nvim-lsp"},
-    {"L3MON4D3/LuaSnip"},
-
+    {
+        'saghen/blink.cmp',
+        version = '1.*',
+        opts = {
+            keymap = {
+                preset = 'enter',
+                ['<S-Tab>'] = { 'select_prev', 'fallback' },
+                ['<Tab>'] = { 'select_next', 'fallback' },
+                ['<C-space>'] = { 'show', 'show_documentation', 'hide_documentation', 'fallback' },
+                ["<Esc>"] = {'cancel', 'fallback'},
+            },
+            completion = { 
+                documentation = { auto_show = true },
+                menu = {
+                    draw = { columns = { { "kind" }, { "label", "label_description" }, },
+                    },
+                },
+            },
+            sources = { default = { 'lsp', 'path', 'snippets', 'buffer' }, },
+            fuzzy = { implementation = "prefer_rust_with_warning" }
+        },
+        opts_extend = { "sources.default" }
+    },
     {"tpope/vim-dispatch", lazy = true, cmd = {"Dispatch", "Make", "Focus", "Start"}},
     {
         "nvim-treesitter/nvim-treesitter",

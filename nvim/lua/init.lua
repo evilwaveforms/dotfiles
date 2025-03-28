@@ -19,25 +19,27 @@ require("lazy").setup("plugins", {})
 require("remap")
 require('fzf').setup()
 
-local lsp_zero = require('lsp-zero')
-
-lsp_zero.on_attach(function(client, bufnr)
-    -- see :help lsp-zero-keybindings
-    -- to learn the available actions
-    client.server_capabilities.semanticTokensProvider = nil
-    vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end)
+vim.api.nvim_create_autocmd('LspAttach', {
+	callback = function(args)
+        local client = vim.lsp.get_client_by_id(args.data.client_id)
+        local bufnr = args.buf
+        local opts = { buffer = bufnr }
+        if client then
+            client.server_capabilities.semanticTokensProvider = nil
+        end
+    vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
     vim.keymap.set('n', '<leader>gd', '<cmd>vsplit | lua vim.lsp.buf.definition()<CR>', opts)
-    vim.keymap.set("n", "<leader>gr", function() vim.lsp.buf.references() end)
-    vim.keymap.set("n", "<leader>k", function() vim.lsp.buf.hover() end)
-    vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end)
-    vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end)
-    vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end)
-    vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end)
-    vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end)
-    vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end)
-    vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end)
-    lsp_zero.default_keymaps({buffer = bufnr})
-end)
+    vim.keymap.set("n", "<leader>gr", function() vim.lsp.buf.references() end, opts)
+    vim.keymap.set("n", "<leader>k", function() vim.lsp.buf.hover() end, opts)
+    vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
+    vim.keymap.set("n", "<leader>vd", function() vim.diagnostic.open_float() end, opts)
+    vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
+    vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
+    vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
+    vim.keymap.set("n", "<leader>rn", function() vim.lsp.buf.rename() end, opts)
+    vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+	end,
+})
 
 local on_attach = function(client, bufnr)
     if client.name == 'ruff' then
@@ -46,16 +48,31 @@ local on_attach = function(client, bufnr)
     end
 end
 
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
+local capabilities = require('blink.cmp').get_lsp_capabilities()
+
 require('mason').setup({})
 require('mason-lspconfig').setup({
     ensure_installed = { "pyright", "ruff", "rust_analyzer", "html", "cssls"},
     handlers = {
-        lsp_zero.default_setup,
-        lua_ls = function()
-            local lua_opts = lsp_zero.nvim_lua_ls()
-            require('lspconfig').lua_ls.setup(lua_opts)
+        function(server_name)
+            require('lspconfig')[server_name].setup({
+                capabilities = capabilities,
+                on_attach = on_attach,
+            })
         end,
+		["lua_ls"] = function()
+			require('lspconfig').lua_ls.setup({
+				capabilities = capabilities,
+				on_attach = on_attach,
+				settings = {
+					Lua = {
+						diagnostics = {
+							globals = { 'vim' }
+						}
+					}
+				}
+			})
+		end,
         cssls = function()
             require('lspconfig').cssls.setup({
                 capabilities = capabilities,
@@ -107,9 +124,6 @@ require('mason-lspconfig').setup({
     }
 })
 
-local cmp = require('cmp')
-local cmp_format = lsp_zero.cmp_format()
-
 local function border(hl_name)
     return {
         { "┌", hl_name },
@@ -128,50 +142,6 @@ local has_words_before = function()
     local line, col = unpack(vim.api.nvim_win_get_cursor(0))
     return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
 end
-
-local luasnip = require("luasnip")
-cmp.setup({
-    formatting = cmp_format,
-    mapping = cmp.mapping.preset.insert({
-        -- scroll up and down the documentation window
-        ['<C-u>'] = cmp.mapping.scroll_docs(-4),
-        ['<C-d>'] = cmp.mapping.scroll_docs(4),
-        ['<CR>'] = cmp.mapping.confirm({select = false}),
-        ['<C-e>'] = cmp.mapping.abort(),
-        ["<Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_next_item()
-                -- You could replace the expand_or_jumpable() calls with expand_or_locally_jumpable()
-                -- that way you will only jump inside the snippet region
-            elseif luasnip.expand_or_jumpable() then
-                luasnip.expand_or_jump()
-            elseif has_words_before() then
-                cmp.complete()
-            else
-                fallback()
-            end
-        end, { "i", "s" }),
-        ["<S-Tab>"] = cmp.mapping(function(fallback)
-            if cmp.visible() then
-                cmp.select_prev_item()
-            elseif luasnip.jumpable(-1) then
-                luasnip.jump(-1)
-            else
-                fallback()
-            end
-        end, { "i", "s" }),
-    }),
-    window = {
-        completion = {
-            border = border("CmpMenuBorder"),
-            -- winhighlight = "Normal:CmpMenu,CursorLine:CmpMenuSel,Search:None",
-        },
-        documentation = {
-            border = border("CmpMenuBorder"),
-            -- winhighlight = "Normal:CmpDoc",
-        },
-    }
-})
 
 vim.diagnostic.config({
     virtual_text = true,
