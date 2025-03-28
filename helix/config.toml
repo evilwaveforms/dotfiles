@@ -26,6 +26,8 @@ t = ":sh cargo test &"
 m = ":sh make >/dev/null"
 c = ":config-open"
 r = ":config-reload"
+g = ":sh git log -n 1 -L %{cursor_line},+1:%{buffer_name}"
+l = ":sh git blame -L %{cursor_line},%{cursor_line} %{buffer_name} | awk '{print $1}' | xargs git log -1 --format='medium'"
 
 [keys.normal]
 X = ["extend_line_up", "extend_to_line_bounds"]
