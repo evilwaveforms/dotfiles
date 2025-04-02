@@ -113,3 +113,4 @@ end
 
 vim.cmd [[command! -nargs=1 LoadLocal call v:lua.LoadLocal(<f-args>)]]
 vim.keymap.set('n', 'gxl', RunLocal, {desc="Buffer Task"})
+vim.keymap.set('n', '<F2>', ':!gcc -Wall -Wextra -g3 -o %<.o % && ./%<.o<CR>')
