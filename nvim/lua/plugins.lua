@@ -123,4 +123,14 @@ return {
             "nvim-treesitter/nvim-treesitter",
         },
     },
+    {
+        "evilwaveforms/disenchant",
+        -- dir = "~/dev/disenchant",
+        -- name = "disenchant",
+        opts = {
+            -- compile_command_c = 'gcc -g3 -c %s -o %s.o',
+            -- compile_command_cpp = 'g++ -g3 -c %s -o %s.o',
+            objdump_command = 'objdump -l --demangle -Mintel -d %s',
+        },
+    },
 }
