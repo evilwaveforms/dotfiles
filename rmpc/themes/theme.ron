@@ -23,10 +23,10 @@
     highlight_border_style: (fg: "red"),
     symbols: (song: "S", dir: "D", playlist: "P", marker: "M", ellipsis: "..."),
     progress_bar: (
-        symbols: ["[", "-", ">", " ", "]"],
+        symbols: ["", "░", "█", " ", ""],
         track_style: (fg: "#1e2030"),
         elapsed_style: (fg: "red"),
-        thumb_style: (fg: "white", bg: "#1e2030"),
+        thumb_style: (fg: "red", bg: "#1e2030"),
     ),
     scrollbar: (
         symbols: ["│", "█", "▲", "▼"],
