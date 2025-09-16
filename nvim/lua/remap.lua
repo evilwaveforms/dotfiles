@@ -41,6 +41,7 @@ vim.keymap.set("n", "[b", "<cmd>bprev<CR>")
 vim.keymap.set("n", "]b", "<cmd>bnext<CR>")
 vim.keymap.set("n", "[t", "<cmd>tabprevious<CR>")
 vim.keymap.set("n", "]t", "<cmd>tabnext<CR>")
+-- vim.keymap.set("n", "<F2>", "<cmd>:make %:r<CR>")
 
 vim.keymap.set('n', '<leader>gg', function()
     if vim.bo.filetype == 'fugitiveblame' then
@@ -114,3 +115,4 @@ end
 vim.cmd [[command! -nargs=1 LoadLocal call v:lua.LoadLocal(<f-args>)]]
 vim.keymap.set('n', 'gxl', RunLocal, {desc="Buffer Task"})
 vim.keymap.set('n', '<F2>', ':!gcc -Wall -Wextra -g3 -o %<.o % && ./%<.o<CR>')
+vim.keymap.set('n', '<F3>', ':!make<CR>')
