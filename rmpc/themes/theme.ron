@@ -45,7 +45,7 @@
             prop: (kind: Property(Title),
                 default: (kind: Text("Unknown"))
             ),
-            width: "35%",
+            width: "40%",
         ),
         (
             prop: (kind: Property(Album), style: (fg: "white"),
@@ -57,7 +57,7 @@
             prop: (kind: Property(Duration),
                 default: (kind: Text("-"))
             ),
-            width: "15%",
+            width: "10%",
             alignment: Right,
         ),
     ],
@@ -89,12 +89,11 @@
                     (kind: Property(Song(Artist)), style: (fg: "red", modifiers: "Bold"),
                         default: (kind: Text("Unknown"), style: (fg: "red", modifiers: "Bold"))
                     ),
-                    (kind: Text(" - ")),
+                ],
+                right: [
                     (kind: Property(Song(Album)),
                         default: (kind: Text("Unknown Album"))
                     )
-                ],
-                right: [
                 ]
             ),
         ],
