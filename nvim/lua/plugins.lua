@@ -133,4 +133,15 @@ return {
             objdump_command = 'objdump -l --demangle -Mintel -d %s',
         },
     },
+    {
+      -- dir = "~/dev/nvim-claudecode-tmux/",
+      "evilwaveforms/nvim-claudecode-tmux",
+      name = "nvim-claudecode-tmux",
+      opts = {
+          keymap_reference = "<leader>cl",
+          keymap_selection = "<leader>cs",
+          keymap_toggle = "<leader>cc",
+          split_direction = "-h",
+      },
+    },
 }
