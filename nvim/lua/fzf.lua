@@ -1,7 +1,7 @@
 local M = {}
 
 local RG_BASE_OPTS = "--column --hidden --line-number --no-heading --color=always --smart-case"
-local RG_IGNORE = "-g '!{.git,build,node_modules,LC_MESSAGES}'"
+local RG_IGNORE = "-g '!{.git,build,node_modules,LC_MESSAGES,tags}'"
 local PREVIEW_OPTS = {'--delimiter', ':', '--nth', '4..', '--preview-window', 'right:50%'}
 
 local function execute_fzf_grep(rg_cmd_parts, query_prefill)
@@ -44,6 +44,11 @@ end
 function M.setup()
   vim.g.fzf_preview_window = {"right,50%,<70(up,40%)", "ctrl-/"}
   vim.env.FZF_DEFAULT_COMMAND = "rg --files --hidden " .. RG_IGNORE
+  vim.g.fzf_action = {
+    ['ctrl-c'] = function(files)
+      require('nvim-claudecode-tmux').add_files(files)
+    end,
+  }
   vim.api.nvim_create_user_command('Rg', function(c)
     M.vim_grep(c.args)
   end, {bang = true, nargs = '*'})
