@@ -52,7 +52,7 @@ local capabilities = require('blink.cmp').get_lsp_capabilities()
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-    ensure_installed = { "pyright", "ruff", "rust_analyzer", "html", "cssls"},
+    ensure_installed = { "ty", "ruff", "rust_analyzer", "html", "cssls"},
     handlers = {
         function(server_name)
             require('lspconfig')[server_name].setup({
@@ -88,21 +88,6 @@ require('mason-lspconfig').setup({
                     embeddedLanguages = {
                         css = true,
                         javascript = true
-                    },
-                },
-            })
-        end,
-        pyright = function()
-            require('lspconfig').pyright.setup({
-                capabilities = capabilities,
-                on_attach = on_attach,
-                settings = {
-                    pyright = { disableOrganizeImports = true, },
-                    python = {
-                        analysis = {
-                            ignore = { '*' },
-                            -- typeCheckingMode = "strict",
-                        },
                     },
                 },
             })
