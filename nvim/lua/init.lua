@@ -109,25 +109,6 @@ require('mason-lspconfig').setup({
     }
 })
 
-local function border(hl_name)
-    return {
-        { "┌", hl_name },
-        { "─", hl_name },
-        { "┐", hl_name },
-        { "│", hl_name },
-        { "┘", hl_name },
-        { "─", hl_name },
-        { "└", hl_name },
-        { "│", hl_name },
-    }
-end
-
-local has_words_before = function()
-    unpack = unpack or table.unpack
-    local line, col = unpack(vim.api.nvim_win_get_cursor(0))
-    return col ~= 0 and vim.api.nvim_buf_get_lines(0, line - 1, line, true)[1]:sub(col, col):match("%s") == nil
-end
-
 vim.diagnostic.config({
     virtual_text = true,
     signs = true,
@@ -252,5 +233,4 @@ vim.g.go_highlight_diagnostic_errors = 1
 vim.g.go_highlight_diagnostic_warnings = 1
 vim.opt.viminfo = "'100,<9999,s100"
 
-vim.lsp.handlers['textDocument/hover'] = vim.lsp.with(vim.lsp.handlers.hover, { border = border("CmpMenuBorder") })
-vim.lsp.handlers['textDocument/signatureHelp'] = vim.lsp.with(vim.lsp.handlers.signature_help, { border = border("CmpMenuBorder") })
+vim.opt.winborder = "single"
