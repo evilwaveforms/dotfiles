@@ -167,6 +167,7 @@ client.background       #000000
 bar {
     position top
     status_command i3blocks
+    tray_output primary
     colors {
         background #000000
         statusline #949494
