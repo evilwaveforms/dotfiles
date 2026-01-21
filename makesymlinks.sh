@@ -18,6 +18,7 @@ files="
     alacritty.toml
     vimspector.gadgets.json
     lldbinit
+    gdbinit
 "
 cdirs="zathura nvim helix kitty rmpc" # ~/.config/x
 
