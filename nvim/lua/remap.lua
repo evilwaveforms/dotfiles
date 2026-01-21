@@ -122,7 +122,7 @@ vim.keymap.set('n', '<leader>hd', function()
   local num = tonumber(word) or tonumber(word, 16)
   if num then
     vim.lsp.util.open_floating_preview(
-      { string.format('%s = %d (dec) = 0x%X (hex)', word, num, num) },
+      { string.format('dec: %d', num), string.format('hex: 0x%X', num) },
       'plaintext',
       { focus = false }
     )
