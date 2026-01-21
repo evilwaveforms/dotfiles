@@ -1,0 +1,15 @@
+{
+  "adapters": {
+    "lldb-dap": {
+      "command": [ "lldb-dap" ],
+      "name": "lldb",
+      "attach": {
+        "pidProperty": "pid",
+        "pidSelect": "ask"
+      },
+      "env": {
+        "LLDB_LAUNCH_FLAG_LAUNCH_IN_TTY": "YES"
+      }
+    }
+  }
+}

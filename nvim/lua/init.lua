@@ -48,6 +48,10 @@ local on_attach = function(client, bufnr)
     end
 end
 
+pcall(function()
+  vim.g.vimspector_adapters = vim.json.decode(vim.fn.join(vim.fn.readfile(vim.fn.expand("~/.vimspector.gadgets.json")), "\n")).adapters
+end)
+
 local capabilities = require('blink.cmp').get_lsp_capabilities()
 
 require('mason').setup({})
