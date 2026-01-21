@@ -116,3 +116,15 @@ vim.cmd [[command! -nargs=1 LoadLocal call v:lua.LoadLocal(<f-args>)]]
 vim.keymap.set('n', 'gxl', RunLocal, {desc="Buffer Task"})
 vim.keymap.set('n', '<F2>', ':!gcc -Wall -Wextra -g3 -o %<.o % && ./%<.o<CR>')
 vim.keymap.set('n', '<F3>', ':!make<CR>')
+
+vim.keymap.set('n', '<leader>hd', function()
+  local word = vim.fn.expand('<cword>')
+  local num = tonumber(word) or tonumber(word, 16)
+  if num then
+    vim.lsp.util.open_floating_preview(
+      { string.format('%s = %d (dec) = 0x%X (hex)', word, num, num) },
+      'plaintext',
+      { focus = false }
+    )
+  end
+end, { desc = 'Show decimal/hex' })
