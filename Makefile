@@ -2,7 +2,8 @@ PACKAGES := curl wget flameshot mpd ncmpcpp keepassxc \
 			feh redshift thunar i3 i3blocks tmux git \
 			ninja-build gettext cmake unzip build-essential \
 			ccache apt-listbugs ripgrep libx11-dev xclip \
-			libxft-dev mpv arandr mpc redshift python3-pynvim
+			libxft-dev mpv arandr mpc redshift python3-pynvim \
+			manpages-posix
 
 # Default target
 .PHONY: all
