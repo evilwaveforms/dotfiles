@@ -121,10 +121,19 @@ vim.keymap.set('n', '<leader>hd', function()
   local word = vim.fn.expand('<cword>')
   local num = tonumber(word) or tonumber(word, 16)
   if num then
+    local bin = ''
+    local n = num
+    repeat
+      bin = (n % 2) .. bin
+      n = math.floor(n / 2)
+    until n == 0
+    local pad = (8 - #bin % 8) % 8
+    bin = string.rep('0', pad) .. bin
+    bin = bin:gsub('........', '%0 '):gsub(' $', '')
     vim.lsp.util.open_floating_preview(
-      { string.format('dec: %d', num), string.format('hex: 0x%X', num) },
+      { string.format('dec: %d', num), string.format('hex: 0x%X', num), 'bin: 0b' .. bin },
       'plaintext',
       { focus = false }
     )
   end
-end, { desc = 'Show decimal/hex' })
+end, { desc = 'Show decimal/hex/binary' })
