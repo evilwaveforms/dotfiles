@@ -10,6 +10,13 @@
       "env": {
         "LLDB_LAUNCH_FLAG_LAUNCH_IN_TTY": "YES"
       }
+    },
+    "probe-rs": {
+      "type": "tty",
+      "name": "probe-rs",
+      "command": ["probe-rs", "dap-server", "--port", "${unusedLocalPort}"],
+      "port": "${unusedLocalPort}",
+      "delay": "1000"
     }
   }
 }
