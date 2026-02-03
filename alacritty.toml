@@ -1,6 +1,7 @@
 [font]
-normal = { family = "Berkeley Mono", style = "Regular" }
-size = 15
+normal = { family = "Berkeley Mono Condensed", style = "Regular" }
+# normal = { family = "DinaRemasterII", style = "Regular" }
+size = 16
 # normal = { family = "IBM 3270", style = "Regular" }
 # size = 17
 
@@ -12,8 +13,8 @@ background = "#000000"
 red = "#561102"
 green = "#3F9834"
 yellow = "#D79123"
-blue = "#5278BD"
 cyan = "#558188"
+blue = "#5278BD"
 
 [colors.bright]
 red = "#880808"
@@ -21,6 +22,7 @@ green = "#54c047"
 yellow = "#FB7F0C"
 cyan = "#70C098"
 magenta = "#5c5cff"
+blue = "#5C5CFF"
 
 [colors]
 cursor = { text = "CellBackground", cursor = "#3F9834" }
