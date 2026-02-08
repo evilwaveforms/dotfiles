@@ -56,7 +56,7 @@ local capabilities = require('blink.cmp').get_lsp_capabilities()
 
 require('mason').setup({})
 require('mason-lspconfig').setup({
-    ensure_installed = { "ty", "ruff", "rust_analyzer", "html", "cssls"},
+    ensure_installed = { "clangd", "ty", "ruff", "rust_analyzer", "html", "cssls"},
     automatic_enable = false,
 })
 
@@ -102,7 +102,7 @@ vim.lsp.config('ruff', {
     }
 })
 
-vim.lsp.enable({ "ty", "ruff", "rust_analyzer", "html", "cssls", "lua_ls" })
+vim.lsp.enable({ "clangd", "ty", "ruff", "rust_analyzer", "html", "cssls", "lua_ls" })
 
 vim.diagnostic.config({
     virtual_text = true,
