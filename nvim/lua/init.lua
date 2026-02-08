@@ -57,61 +57,52 @@ local capabilities = require('blink.cmp').get_lsp_capabilities()
 require('mason').setup({})
 require('mason-lspconfig').setup({
     ensure_installed = { "ty", "ruff", "rust_analyzer", "html", "cssls"},
-    handlers = {
-        function(server_name)
-            require('lspconfig')[server_name].setup({
-                capabilities = capabilities,
-                on_attach = on_attach,
-            })
-        end,
-		["lua_ls"] = function()
-			require('lspconfig').lua_ls.setup({
-				capabilities = capabilities,
-				on_attach = on_attach,
-				settings = {
-					Lua = {
-						diagnostics = {
-							globals = { 'vim' }
-						}
-					}
-				}
-			})
-		end,
-        cssls = function()
-            require('lspconfig').cssls.setup({
-                capabilities = capabilities,
-                filetypes = {"css", "scss", "less", "html"},
-            })
-        end,
-        html = function()
-            require('lspconfig').html.setup({
-                capabilities = capabilities,
-                filetypes = {"html", "htmldjango"},
-                init_options = {
-                    configurationSection = { "html", "css", "javascript" },
-                    embeddedLanguages = {
-                        css = true,
-                        javascript = true
-                    },
-                },
-            })
-        end,
-        ruff = function()
-            require("lspconfig").ruff.setup({
-                on_attach = on_attach,
-                init_options = {
-                    settings = {
-                        lint = { args = { "--line-length=91" } },
-                        format = { args = { "--line-length=91" } },
-                        -- args = {
-                        --     "--ignore=xxx",
-                        -- }
-                    },
-                }
-            })
-        end,
+    automatic_enable = false,
+})
+
+vim.lsp.config('*', {
+    capabilities = capabilities,
+    on_attach = on_attach,
+})
+
+vim.lsp.config('lua_ls', {
+    settings = {
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            }
+        }
     }
 })
+
+vim.lsp.config('cssls', {
+    filetypes = {"css", "scss", "less", "html"},
+})
+
+vim.lsp.config('html', {
+    filetypes = {"html", "htmldjango"},
+    init_options = {
+        configurationSection = { "html", "css", "javascript" },
+        embeddedLanguages = {
+            css = true,
+            javascript = true
+        },
+    },
+})
+
+vim.lsp.config('ruff', {
+    init_options = {
+        settings = {
+            lint = { args = { "--line-length=91" } },
+            format = { args = { "--line-length=91" } },
+            -- args = {
+            --     "--ignore=xxx",
+            -- }
+        },
+    }
+})
+
+vim.lsp.enable({ "ty", "ruff", "rust_analyzer", "html", "cssls", "lua_ls" })
 
 vim.diagnostic.config({
     virtual_text = true,
@@ -199,15 +190,16 @@ vim.opt.matchpairs:append("<:>")
 vim.opt.number = true
 vim.opt.relativenumber = true
 
-vim.opt.statusline = ""
-vim.opt.statusline:append("%f")
-vim.opt.statusline:append("%m")
-vim.opt.statusline:append("%= ")
-vim.opt.statusline:append(" %y")
--- -- vim.opt.statusline:append("\\ %{&fileencoding?&fileencoding:&encoding}")
--- -- vim.opt.statusline:append("\\ %{&fileformat}")
-vim.opt.statusline:append(" %l:%c")
-vim.opt.statusline:append(" %p%%")
+vim.opt.statusline = table.concat({
+    "%f",
+    "%m",
+    "%= ",
+    " %y",
+    -- "\\ %{&fileencoding?&fileencoding:&encoding}",
+    -- "\\ %{&fileformat}",
+    " %l:%c",
+    " %p%%",
+})
 
 vim.opt.encoding = "UTF-8"
 
