@@ -137,3 +137,19 @@ vim.keymap.set('n', '<leader>hd', function()
     )
   end
 end, { desc = 'Show decimal/hex/binary' })
+
+vim.keymap.set("n", "<leader>eC", function()
+  local lnum = vim.api.nvim_win_get_cursor(0)[1] - 1
+  local diags = vim.diagnostic.get(0, { lnum = lnum })
+  if not diags or #diags == 0 then
+    vim.notify("No diagnostics on current line", vim.log.levels.INFO)
+    return
+  end
+  local msgs = {}
+  for _, d in ipairs(diags) do
+    table.insert(msgs, d.message)
+  end
+  local text = table.concat(msgs, "\n")
+  vim.fn.setreg("+", text)
+  vim.notify("Copied diagnostics for line " .. (lnum + 1), vim.log.levels.INFO)
+end, { desc = "Copy all diagnostics for line to clipboard" })
