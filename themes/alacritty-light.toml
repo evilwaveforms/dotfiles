@@ -1,0 +1,22 @@
+[colors.primary]
+foreground = "#000000"
+background = "#FFFFFF"
+
+[colors.normal]
+red = "#561102"
+green = "#3F9834"
+yellow = "#D79123"
+cyan = "#558188"
+blue = "#5278BD"
+
+[colors.bright]
+red = "#880808"
+green = "#54c047"
+yellow = "#FB7F0C"
+cyan = "#70C098"
+magenta = "#5c5cff"
+blue = "#5C5CFF"
+
+[colors]
+cursor = { text = "CellBackground", cursor = "#3F9834" }
+vi_mode_cursor = { text = "CellBackground", cursor = "#3F9834" }

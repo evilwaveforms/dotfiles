@@ -1,32 +1,13 @@
+[general]
+import = ["~/dotfiles/themes/alacritty-current.toml"]
+live_config_reload = true
+
 [font]
-normal = { family = "Berkeley Mono Condensed", style = "Regular" }
+normal = { family = "Berkeley Mono", style = "Regular" }
 # normal = { family = "DinaRemasterII", style = "Regular" }
 size = 16
 # normal = { family = "IBM 3270", style = "Regular" }
 # size = 17
-
-[colors.primary]
-foreground = "#949494"
-background = "#000000"
-
-[colors.normal]
-red = "#561102"
-green = "#3F9834"
-yellow = "#D79123"
-cyan = "#558188"
-blue = "#5278BD"
-
-[colors.bright]
-red = "#880808"
-green = "#54c047"
-yellow = "#FB7F0C"
-cyan = "#70C098"
-magenta = "#5c5cff"
-blue = "#5C5CFF"
-
-[colors]
-cursor = { text = "CellBackground", cursor = "#3F9834" }
-vi_mode_cursor = { text = "CellBackground", cursor = "#3F9834" }
 
 [cursor]
 style = { shape = "Block", blinking = "Always" }

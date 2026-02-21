@@ -127,9 +127,15 @@ vim.opt.wildignore:append("*.pyc,*/node_modules/*,*.o")
 
 vim.opt.redrawtime = 10000
 
-vim.opt.background = "dark"
 vim.opt.termguicolors = true
-vim.cmd([[colorscheme cybernetics]])
+
+local nvim_theme_file = vim.fn.expand("~/dotfiles/themes/nvim-current.lua")
+if vim.fn.filereadable(nvim_theme_file) == 1 then
+    pcall(dofile, nvim_theme_file)
+else
+    vim.opt.background = "dark"
+    pcall(vim.cmd, "colorscheme cybernetics")
+end
 
 -- vim.opt.listchars:append("tab:\uBB\uBB,trail:\uB7,nbsp:~")
 -- vim.opt.list = true
