@@ -43,3 +43,8 @@ for cdir in $cdirs; do
     mv ~/.config/$cdir ~/dotfiles_old/
     ln -s $dir/$cdir ~/.config/$cdir
 done
+
+if [ -x "$dir/bin/reaper-pw" ]; then
+    echo "Creating /usr/local/bin/reaper-pw symlink."
+    sudo ln -sf "$dir/bin/reaper-pw" /usr/local/bin/reaper-pw
+fi

@@ -3,7 +3,7 @@ PACKAGES := curl wget flameshot mpd ncmpcpp keepassxc \
 			ninja-build gettext cmake unzip build-essential \
 			ccache apt-listbugs ripgrep libx11-dev xclip \
 			libxft-dev mpv arandr mpc redshift python3-pynvim \
-			manpages-posix
+			manpages-posix pipewire-audio pipewire-jack
 
 # Default target
 .PHONY: all
@@ -73,4 +73,3 @@ helix: ## clone and build helix
 		git clone https://github.com/helix-editor/helix ~/helix; \
 	fi
 	cd ~/helix && cargo install --path helix-term --locked
-

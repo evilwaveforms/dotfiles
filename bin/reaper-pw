@@ -1,0 +1,2 @@
+#!/bin/sh
+exec pw-jack /usr/bin/reaper "$@"
