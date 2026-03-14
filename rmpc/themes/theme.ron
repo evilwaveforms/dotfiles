@@ -45,19 +45,29 @@
             prop: (kind: Property(Title),
                 default: (kind: Text("Unknown"))
             ),
-            width: "40%",
+            width: "35%",
         ),
         (
             prop: (kind: Property(Album), style: (fg: "white"),
                 default: (kind: Text("Unknown Album"), style: (fg: "white"))
             ),
-            width: "30%",
+            width: "25%",
+        ),
+        (
+            prop: (kind: Property(Other("date")),
+                default: (
+                    kind: Property(Other("originaldate")),
+                    default: (kind: Text("-"))
+                )
+            ),
+            width: "8%",
+            alignment: Right,
         ),
         (
             prop: (kind: Property(Duration),
                 default: (kind: Text("-"))
             ),
-            width: "10%",
+            width: "12%",
             alignment: Right,
         ),
     ],
