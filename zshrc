@@ -1,6 +1,5 @@
 export EDITOR=nvim
 export RUST_BACKTRACE=1
-export VK_INSTANCE_LAYERS=VK_LAYER_KHRONOS_validation
 
 HISTFILE=~/.histfile
 HISTSIZE=1000
