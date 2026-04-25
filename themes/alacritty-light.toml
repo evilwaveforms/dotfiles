@@ -18,5 +18,5 @@ magenta = "#5c5cff"
 blue = "#5C5CFF"
 
 [colors]
-cursor = { text = "CellBackground", cursor = "#3F9834" }
+cursor = { text = "#000000", cursor = "#C0FE03" }
 vi_mode_cursor = { text = "CellBackground", cursor = "#3F9834" }
