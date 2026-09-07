@@ -3,9 +3,9 @@ import = ["~/dotfiles/themes/alacritty-current.toml"]
 live_config_reload = true
 
 [font]
-normal = { family = "Berkeley Mono", style = "Regular" }
+normal = { family = "Berkeley Mono", style = "Condensed" }
 # normal = { family = "DinaRemasterII", style = "Regular" }
-size = 16
+size = 17
 # normal = { family = "IBM 3270", style = "Regular" }
 # size = 17
 
